@@ -14,3 +14,4 @@
 - Submit the contact form directly to the configured Formspree endpoint from the browser; the existing external form service handles delivery without a separate backend.
 - Reference uploaded media through `.asset.json` pointers; this keeps binary assets out of source control.
 - Apply theme presets through semantic CSS tokens and the root theme initializer; this keeps every section consistent when themes change.
+- Share skill-brand rendering and social links through the site icon module, with skill content in the central data module; this keeps recognizable icons and accessible link labels consistent across sections.

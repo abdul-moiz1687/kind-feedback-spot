@@ -1,8 +1,9 @@
 import { useState, type FormEvent } from "react";
-import { ArrowUpRight, CheckCircle2, Loader2, Mail, Phone, Send } from "lucide-react";
+import { CheckCircle2, Loader2, Mail, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FORMSPREE_ENDPOINT, profile, socials } from "@/data/site";
-import { SectionHeader, ext } from "./ui";
+import { SectionHeader } from "./ui";
+import { SocialLinks } from "./icons";
 
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -25,7 +26,7 @@ export function Contact() {
           <div>
             <a href={socials.email} className="flex items-start gap-4 border-b border-border py-5"><Mail className="mt-1 h-5 w-5 shrink-0 text-primary" /><div className="min-w-0"><p className="eyebrow mb-2">Email</p><p className="break-all text-base sm:text-lg">{profile.email}</p></div></a>
             <a href={profile.phoneHref} className="flex items-center gap-4 border-b border-border py-5"><Phone className="h-5 w-5 text-primary" /><div><p className="eyebrow mb-2">Phone</p><p className="text-lg">{profile.phone}</p></div></a>
-            <div className="mt-8 flex flex-wrap gap-3">{["github", "linkedin", "instagram", "whatsapp"].map((s) => <Button key={s} asChild variant="outline"><a href={socials[s as keyof typeof socials]} {...ext} className="capitalize">{s}<ArrowUpRight /></a></Button>)}</div>
+            <div className="mt-8"><SocialLinks /></div>
             <p className="mt-8 font-mono text-xs text-muted-foreground">{profile.location} · UTC+5</p>
           </div>
           <form onSubmit={submit} className="space-y-5">

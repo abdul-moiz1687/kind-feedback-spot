@@ -23,6 +23,20 @@ export const socials = {
 
 export const FORMSPREE_ENDPOINT = "https://formspree.io/f/mjygoeqo";
 
+export const about = {
+  paragraphs: [
+    "I'm Abdul Moiz, a web developer based in Karachi, Pakistan. Having completed SMIT's Modern Web Application Development course, I've developed practical skills in both frontend and backend development. Through hands-on projects, I've worked with React, Next.js, Node.js, Express.js, REST APIs, and MongoDB to build responsive interfaces and functional, database-driven applications.",
+    "Alongside web development, I'm also expanding my digital skills through DigiSkills courses in SEO and WordPress. This allows me to explore how websites are developed, optimized, and made more accessible to their intended audiences. I enjoy solving practical problems, connecting clean user interfaces with reliable backend functionality, and continuously improving my skills by building real projects and learning new technologies.",
+  ],
+  approach: "Understand the problem. Keep the experience simple. Build with care.",
+};
+
+export const skillGroups = [
+  { title: "Frontend", skills: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "Responsive Design"] },
+  { title: "Backend & Data", skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "JWT Authentication", "Firebase"] },
+  { title: "Tools & Workflow", skills: ["Git", "GitHub", "Vite", "VS Code", "Postman", "Vercel", "Netlify"] },
+];
+
 export const navLinks = [
   { id: "about", label: "About" },
   { id: "projects", label: "Projects" },

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Palette, Check } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { DEFAULT_THEME, themes, type ThemeId } from "@/data/site";
+import { Button } from "@/components/ui/button";
 
 const KEY = "am-theme";
 
@@ -48,16 +49,18 @@ export function ThemeSelector() {
 
   return (
     <div className="relative" ref={ref}>
-      <button
+      <Button
+        variant="outline"
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-haspopup="true"
         aria-expanded={open}
         aria-label="Choose color theme"
+        title="Choose color theme"
         className="grid h-10 w-10 place-items-center rounded-md border border-border text-muted-foreground hover:border-border-strong hover:text-foreground"
       >
         <Palette className="h-4 w-4" />
-      </button>
+      </Button>
       <AnimatePresence>
         {open && (
           <motion.div
@@ -71,7 +74,8 @@ export function ThemeSelector() {
           >
             <p className="eyebrow px-2.5 pb-1.5 pt-1">Theme</p>
             {themes.map((t) => (
-              <button
+              <Button
+                variant="ghost"
                 key={t.id}
                 type="button"
                 role="radio"
@@ -86,7 +90,7 @@ export function ThemeSelector() {
                 </span>
                 <span className="min-w-0 flex-1 truncate">{t.name}</span>
                 {theme === t.id && <Check className="h-4 w-4 shrink-0 text-primary" />}
-              </button>
+              </Button>
             ))}
           </motion.div>
         )}

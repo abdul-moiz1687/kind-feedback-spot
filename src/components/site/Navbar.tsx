@@ -5,6 +5,7 @@ import { navLinks, profile } from "@/data/site";
 import { Monogram } from "./Brand";
 import { ThemeSelector } from "./theme";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -52,7 +53,8 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-40 border-b transition-colors",
-        scrolled || open ? "border-border bg-background/85 backdrop-blur-md" : "border-transparent",
+        "bg-background/85 backdrop-blur-md",
+        scrolled || open ? "border-border" : "border-transparent",
       )}
     >
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground">
@@ -84,10 +86,11 @@ export function Navbar() {
         </ul>
         <div className="flex shrink-0 items-center gap-2">
           <ThemeSelector />
-          <a href="#contact" className="hidden h-10 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground hover:brightness-110 sm:inline-flex">
+          <Button asChild className="hidden h-10 sm:inline-flex"><a href="#contact">
             Let's talk
-          </a>
-          <button
+          </a></Button>
+          <Button
+            variant="outline"
             ref={toggleRef}
             type="button"
             className="grid h-10 w-10 place-items-center rounded-md border border-border lg:hidden"
@@ -97,7 +100,7 @@ export function Navbar() {
             onClick={() => setOpen((o) => !o)}
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </button>
+          </Button>
         </div>
       </nav>
       <motion.div className="h-px origin-left bg-primary" style={{ scaleX: progress }} aria-hidden="true" />

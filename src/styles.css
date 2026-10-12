@@ -178,7 +178,7 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
   }
   :focus-visible {
     outline: 2px solid var(--color-ring);
@@ -204,7 +204,7 @@
 @utility eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: var(--color-muted-foreground);
 }
@@ -238,4 +238,18 @@
   @media (prefers-reduced-motion: reduce) {
     animation: none;
   }
+}
+
+.portfolio-hero { min-height: 740px; }
+.hero-name { font-size: 96px; }
+.hero-photo { width: 54%; }
+.hero-shade { background: linear-gradient(90deg, var(--background) 0%, var(--background) 32%, color-mix(in oklch, var(--background) 80%, transparent) 49%, transparent 76%), linear-gradient(0deg, var(--background), transparent 32%); }
+@media (max-width: 767px) {
+  .portfolio-hero { min-height: 720px; }
+  .hero-name { font-size: 72px; }
+  .hero-photo { width: 100%; opacity: 0.3; }
+  .hero-shade { background: linear-gradient(90deg, var(--background), color-mix(in oklch, var(--background) 65%, transparent)), linear-gradient(0deg, var(--background), transparent 70%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

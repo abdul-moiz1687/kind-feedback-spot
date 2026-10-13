@@ -35,7 +35,33 @@ export function Portfolio() {
             <div className="mt-12 flex items-end justify-between border-t border-border pt-6"><p className="font-mono text-xs text-muted-foreground">FRONTEND PRECISION. BACKEND THINKING.</p><a href="#about" aria-label="Scroll to About" className="ml-4 grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border-strong text-muted-foreground"><ArrowDown size={16} /></a></div>
           </div>
         </section>
-        <section id="about" className="py-20 md:py-28"><div className="container-site"><SectionHeader index="01" eyebrow="A little about me" title={<>Thoughtful design.<br />Reliable development.</>} /><div className="grid gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] md:gap-20"><Reveal className="space-y-6">{about.paragraphs.map((paragraph) => <p key={paragraph} className="text-base leading-8 text-muted-foreground">{paragraph}</p>)}</Reveal><Reveal delay={0.1} className="self-start border-t border-border-strong pt-6"><h3 className="mb-4 text-xl font-semibold">My approach</h3><p className="text-base leading-8 text-muted-foreground">{about.approach}</p><div className="mt-8 grid grid-cols-2 gap-6 border-t border-border pt-6"><div><p className="font-display text-4xl font-semibold text-primary">09</p><p className="mt-2 text-sm text-muted-foreground">Featured projects</p></div><div><p className="font-display text-4xl font-semibold text-primary">06</p><p className="mt-2 text-sm text-muted-foreground">Certifications</p></div></div></Reveal></div></div></section>
+<section id="about" className="py-20 md:py-28"><div className="container-site"><SectionHeader index="01" eyebrow="A little about me" title={<>Thoughtful design.<br />Reliable development.</>} />
+          <div className="grid items-center gap-12 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16">
+            <Reveal className="mx-auto w-full max-w-[360px]">
+              <div className="relative">
+                <div aria-hidden="true" className="absolute -left-4 -top-4 h-full w-full rounded-2xl border-2 border-primary/40" />
+                <div aria-hidden="true" className="absolute -bottom-5 -right-5 h-28 w-28 rounded-2xl bg-grid opacity-70" />
+                <div className="relative overflow-hidden rounded-2xl border border-border-strong bg-surface shadow-2xl">
+                  <img src={portrait.url} alt="Abdul Moiz portrait" loading="lazy" className="aspect-[4/5] w-full object-cover object-top" />
+                  <div className="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-xl border border-border bg-background/85 px-4 py-3 backdrop-blur">
+                    <div><p className="font-display text-sm font-semibold">Abdul Moiz</p><p className="text-xs text-muted-foreground">{profile.role}</p></div>
+                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><MapPin size={12} className="text-primary" />Karachi</span>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <div className="space-y-5">{about.paragraphs.map((paragraph) => <p key={paragraph} className="text-base leading-8 text-muted-foreground">{paragraph}</p>)}</div>
+              <div className="mt-8 rounded-2xl border border-border bg-surface/60 p-6">
+                <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-primary">My approach</h3>
+                <p className="mt-3 text-base leading-8">{about.approach}</p>
+              </div>
+              <div className="mt-8 grid grid-cols-3 gap-4">
+                {[["09", "Projects"], ["06", "Certificates"], ["MERN", "Stack"]].map(([n, l]) => <div key={l} className="rounded-xl border border-border p-4 text-center"><p className="font-display text-2xl font-semibold text-primary sm:text-3xl">{n}</p><p className="mt-1 text-xs text-muted-foreground">{l}</p></div>)}
+              </div>
+              <div className="mt-8 flex flex-wrap gap-3"><Button asChild><a href="#contact">Let's talk<ArrowUpRight /></a></Button><Button asChild variant="outline"><a href={profile.cvPath} download={profile.cvFilename}>Download CV<ArrowDownToLine /></a></Button></div>
+            </Reveal>
+          </div></div></section>
         <Projects />
         <section id="skills" className="border-t border-border bg-surface py-20 md:py-28"><div className="container-site"><SectionHeader index="03" eyebrow="Skills & technologies" title="The tools behind the work." intro="From the first interface to the final API, a practical stack for building complete web applications." /><div className="grid gap-10 md:grid-cols-3">{skillGroups.map(({ title, skills }, i) => <Reveal key={title} delay={i * 0.08}><h3 className="mb-6 border-t border-border-strong pt-5 text-xl font-semibold">{title}</h3><ul className="space-y-3">{skills.map((skill) => <li key={skill} className="flex min-h-10 items-center gap-4 border-b border-border pb-3 text-sm text-muted-foreground"><SkillIcon name={skill} />{skill}</li>)}</ul></Reveal>)}</div></div></section>
         <section id="education" className="border-t border-border py-20 md:py-28"><div className="container-site"><SectionHeader index="04" eyebrow="Education" title="A foundation for what's next." />{education.map((e) => <Reveal key={e.school} className="grid gap-4 border-t border-border py-7 md:grid-cols-[1fr_2fr]"><p className="font-mono text-xs text-muted-foreground">{e.period}</p><div><h3 className="flex items-start gap-3 text-xl font-semibold"><GraduationCap className="mt-1 h-5 w-5 shrink-0 text-primary" />{e.program}</h3><p className="mt-2 text-sm text-muted-foreground">{e.school}</p>{e.status && <span className="mt-3 inline-block text-xs text-success">{e.status}</span>}</div></Reveal>)}<div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-7"><div><p className="text-sm font-medium">{ongoingTraining.title}</p><p className="mt-1 text-sm text-muted-foreground">{ongoingTraining.issuer}</p></div><span className="rounded-md bg-accent px-3 py-1.5 text-xs text-accent-foreground">{ongoingTraining.status}</span></div></div></section>

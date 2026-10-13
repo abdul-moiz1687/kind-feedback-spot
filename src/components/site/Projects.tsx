@@ -5,9 +5,26 @@ import { Button } from "@/components/ui/button";
 import { Reveal, SectionHeader, ext } from "./ui";
 import shopco from "@/assets/projects/shopco.jpg.asset.json";
 import maintainiq from "@/assets/projects/maintainiq.jpg.asset.json";
+import timenest from "@/assets/projects/timenest.jpg.asset.json";
+import applio from "@/assets/projects/applio.jpg.asset.json";
+import voido from "@/assets/projects/void.jpg.asset.json";
+import shopflow from "@/assets/projects/shopflow.jpg.asset.json";
+import campusConnect from "@/assets/projects/campus-connect.jpg.asset.json";
+import electroshop from "@/assets/projects/electroshop.jpg.asset.json";
+import portfolioShot from "@/assets/projects/moizdev-portfolio.jpg.asset.json";
 
 const filters = ["All", "Full-Stack", "Frontend", "Backend"] as const;
-const images: Record<string, string> = { "SHOP.CO": shopco.url, MaintainIQ: maintainiq.url };
+const images: Record<string, string> = {
+  "SHOP.CO": shopco.url,
+  MaintainIQ: maintainiq.url,
+  TimeNest: timenest.url,
+  Applio: applio.url,
+  "VOIDØ": voido.url,
+  ShopFlow: shopflow.url,
+  "Campus Connect": campusConnect.url,
+  ElectroShop: electroshop.url,
+  "React Portfolio App": portfolioShot.url,
+};
 
 export function Projects() {
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");

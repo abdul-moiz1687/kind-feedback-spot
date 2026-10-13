@@ -1,6 +1,6 @@
 import { ArrowDown, ArrowDownToLine, ArrowUpRight, Award, GraduationCap, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { about, certifications, education, ongoingTraining, profile, skillGroups } from "@/data/site";
+import { about, certifications, education, navLinks, ongoingTraining, profile, skillGroups } from "@/data/site";
 import portrait from "@/assets/abdul-moiz.png.asset.json";
 import { Navbar } from "./Navbar";
 import { Reveal, SectionHeader, ext } from "./ui";
@@ -42,7 +42,7 @@ export function Portfolio() {
         <section id="certifications" className="border-t border-border py-20 md:py-28"><div className="container-site"><SectionHeader index="05" eyebrow="Certifications" title="Learning, put into practice." intro="Credentials across web development, technology, and business." /><div className="grid gap-4 md:grid-cols-2">{certifications.map((c, i) => <Reveal key={c.file} delay={i * 0.04}><a href={c.file} {...ext} className="group flex h-full items-start gap-4 rounded-lg border border-border p-6 transition-colors hover:border-border-strong hover:bg-surface"><Award className="mt-1 h-6 w-6 shrink-0 text-primary" /><div className="min-w-0 flex-1"><h3 className="text-base font-semibold leading-snug">{c.title}</h3><p className="mt-3 text-sm text-muted-foreground">{c.issuer}</p><p className="mt-2 font-mono text-[11px] text-muted-foreground">{c.date}</p></div><ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary" /></a></Reveal>)}</div></div></section>
         <Contact />
       </main>
-      <footer className="border-t border-border py-8"><div className="container-site flex flex-wrap items-center justify-between gap-4"><p className="font-display text-sm font-semibold">Abdul Moiz<span className="text-primary">.</span></p><p className="text-xs text-muted-foreground">© 2026 Abdul Moiz. All rights reserved.</p><a href="#top" className="flex items-center gap-2 text-xs text-muted-foreground">Back to top<ArrowUpRight size={14} /></a></div></footer>
+      <footer className="border-t border-border py-12"><div className="container-site"><div className="flex flex-col gap-8 border-b border-border pb-8 md:flex-row md:items-start md:justify-between"><div><p className="font-display text-lg font-semibold">Abdul Moiz<span className="text-primary">.</span></p><p className="mt-1 text-sm text-muted-foreground">{profile.role} — {profile.location}</p></div><nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2">{navLinks.map((link) => <a key={link.id} href={`#${link.id}`} className="text-sm text-muted-foreground transition-colors hover:text-foreground">{link.label}</a>)}</nav><SocialLinks /></div><div className="flex flex-wrap items-center justify-between gap-4 pt-6"><p className="text-xs text-muted-foreground">© 2026 Abdul Moiz. All rights reserved.</p><a href="#top" className="flex items-center gap-2 text-xs text-muted-foreground">Back to top<ArrowUpRight size={14} /></a></div></div></footer>
     </div>
   );
 }

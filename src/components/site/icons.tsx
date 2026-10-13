@@ -1,5 +1,5 @@
 import type { IconType } from "react-icons";
-import { SiHtml5, SiCss3, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiNodedotjs, SiExpress, SiMongodb, SiJsonwebtokens, SiFirebase, SiGit, SiGithub, SiVite, SiPostman, SiVercel, SiNetlify } from "react-icons/si";
+import { SiHtml5, SiCss, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiNodedotjs, SiExpress, SiMongodb, SiJsonwebtokens, SiFirebase, SiGit, SiGithub, SiVite, SiPostman, SiVercel, SiNetlify } from "react-icons/si";
 import { FaGithub, FaLinkedinIn, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import { CodeXml, MonitorSmartphone, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,7 @@ import { socials } from "@/data/site";
 import { ext } from "./ui";
 
 const skillIcons: Record<string, IconType> = {
-  HTML5: SiHtml5, CSS3: SiCss3, JavaScript: SiJavascript, TypeScript: SiTypescript,
+  HTML5: SiHtml5, CSS3: SiCss, JavaScript: SiJavascript, TypeScript: SiTypescript,
   React: SiReact, "Next.js": SiNextdotjs, "Tailwind CSS": SiTailwindcss,
   "Node.js": SiNodedotjs, "Express.js": SiExpress, MongoDB: SiMongodb,
   "JWT Authentication": SiJsonwebtokens, Firebase: SiFirebase, Git: SiGit,

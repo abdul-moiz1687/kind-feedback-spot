@@ -3,7 +3,7 @@
 export const profile = {
   name: "Abdul Moiz",
   role: "Full-Stack Web Developer",
-  tagline: "Building modern web experiences and practical backend systems.",
+  tagline: "I'm a web developer passionate about building modern, responsive, and user-friendly web applications. From crafting clean, engaging interfaces with React and Next.js to developing functional backend systems with Node.js, Express, and MongoDB, I enjoy turning ideas into practical digital solutions. Through hands-on projects and continuous learning, I'm strengthening my skills across the full development process and working toward building applications that are both useful and reliable.",
   location: "Karachi, Pakistan",
   email: "abdulmoizarain766@gmail.com",
   phone: "03022481495",

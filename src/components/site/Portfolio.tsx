@@ -14,17 +14,25 @@ export function Portfolio() {
       <Navbar />
       <main id="main">
         <section className="portfolio-hero relative isolate overflow-hidden border-b border-border">
-          <div className="hero-photo absolute inset-y-0 right-0 -z-20"><img src={portrait.url} alt="Abdul Moiz" className="h-full w-full object-cover object-top" fetchPriority="high" /></div>
-          <div className="hero-shade absolute inset-0 -z-10" />
-          <div className="container-site relative pb-14 pt-36 md:pb-20 md:pt-44">
-            <Reveal className="hero-copy">
-              <h1 className="hero-name font-semibold leading-[1.1]"><span className="mb-4 block text-2xl font-medium text-foreground sm:text-3xl">Hello I am</span><span className="text-primary">Abdul Moiz</span></h1>
-              <p className="mt-6 flex items-center gap-3 text-base font-medium"><span className="h-2 w-2 rounded-full bg-success" />{profile.role}</p>
-              <p className="mt-7 max-w-md text-lg leading-relaxed text-muted-foreground">{profile.tagline}</p>
-              <div className="mt-8 flex flex-wrap gap-3"><Button asChild size="lg" className="h-12"><a href="#projects">View my work<ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12"><a href={profile.cvPath} download={profile.cvFilename}>Download CV<ArrowDownToLine /></a></Button></div>
-              <div className="mt-8"><SocialLinks /><span className="mt-4 flex items-center gap-2 text-xs text-muted-foreground"><MapPin size={14} />{profile.location}</span></div>
-            </Reveal>
-            <div className="mt-14 flex items-end justify-between border-t border-border pt-6"><p className="font-mono text-xs text-muted-foreground">FRONTEND PRECISION. BACKEND THINKING.</p><a href="#about" aria-label="Scroll to About" className="ml-4 grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border-strong text-muted-foreground"><ArrowDown size={16} /></a></div>
+          <div className="bg-grid fade-mask absolute inset-0 -z-10" aria-hidden="true" />
+          <div className="container-site relative flex flex-col justify-center pb-12 pt-36 md:pb-16 md:pt-40">
+            <div className="flex flex-col gap-12 md:flex-row md:items-center md:justify-between md:gap-16">
+              <Reveal className="hero-copy">
+                <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">Hello, I'm</p>
+                <h1 className="hero-name mt-4 font-semibold leading-[1.05]">Abdul Moiz</h1>
+                <p className="mt-3 font-display text-2xl font-semibold sm:text-3xl">{profile.role}</p>
+                <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">{profile.tagline}</p>
+                <div className="mt-8 flex flex-wrap gap-3"><Button asChild size="lg" className="h-12"><a href="#projects">View my work<ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12"><a href={profile.cvPath} download={profile.cvFilename}>Download CV<ArrowDownToLine /></a></Button></div>
+                <div className="mt-8"><SocialLinks /><span className="mt-4 flex items-center gap-2 text-xs text-muted-foreground"><MapPin size={14} />{profile.location}</span></div>
+              </Reveal>
+              <Reveal delay={0.12} className="hero-photo shrink-0 self-center">
+                <div className="relative">
+                  <div aria-hidden="true" className="absolute -inset-3 rounded-2xl border border-border bg-surface/60" />
+                  <img src={portrait.url} alt="Abdul Moiz" className="relative aspect-[4/5] w-full rounded-xl border border-border-strong object-cover object-top" fetchPriority="high" />
+                </div>
+              </Reveal>
+            </div>
+            <div className="mt-12 flex items-end justify-between border-t border-border pt-6"><p className="font-mono text-xs text-muted-foreground">FRONTEND PRECISION. BACKEND THINKING.</p><a href="#about" aria-label="Scroll to About" className="ml-4 grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border-strong text-muted-foreground"><ArrowDown size={16} /></a></div>
           </div>
         </section>
         <section id="about" className="py-20 md:py-28"><div className="container-site"><SectionHeader index="01" eyebrow="A little about me" title={<>Thoughtful design.<br />Reliable development.</>} /><div className="grid gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] md:gap-20"><Reveal className="space-y-6">{about.paragraphs.map((paragraph) => <p key={paragraph} className="text-base leading-8 text-muted-foreground">{paragraph}</p>)}</Reveal><Reveal delay={0.1} className="self-start border-t border-border-strong pt-6"><h3 className="mb-4 text-xl font-semibold">My approach</h3><p className="text-base leading-8 text-muted-foreground">{about.approach}</p><div className="mt-8 grid grid-cols-2 gap-6 border-t border-border pt-6"><div><p className="font-display text-4xl font-semibold text-primary">09</p><p className="mt-2 text-sm text-muted-foreground">Featured projects</p></div><div><p className="font-display text-4xl font-semibold text-primary">06</p><p className="mt-2 text-sm text-muted-foreground">Certifications</p></div></div></Reveal></div></div></section>

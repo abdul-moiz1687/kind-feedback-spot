@@ -240,23 +240,20 @@
   }
 }
 
-.portfolio-hero { min-height: 740px; }
-.hero-copy { max-width: 52%; }
-.hero-name { font-size: 64px; }
-.hero-photo { width: 46%; }
-.hero-photo img { object-position: 50% 20%; }
-.hero-shade { background: linear-gradient(90deg, var(--background) 0%, var(--background) 51%, transparent 61%), linear-gradient(0deg, var(--background), transparent 12%); }
+.portfolio-hero { min-height: 720px; }
+.hero-copy { max-width: 56%; }
+.hero-name { font-size: 66px; }
+.hero-photo { width: 340px; }
 @media (min-width: 768px) and (max-width: 1023px) {
   .hero-name { font-size: 48px; }
+  .hero-photo { width: 280px; }
 }
 @media (max-width: 767px) {
-  .portfolio-hero { min-height: 0; display: flex; flex-direction: column; }
+  .portfolio-hero { min-height: 0; }
   .hero-copy { max-width: 100%; }
-  .hero-name { font-size: 48px; }
+  .hero-name { font-size: 44px; }
+  .hero-photo { width: min(300px, 82vw); margin-inline: auto; }
   .portfolio-hero > .container-site { padding-top: 8rem; padding-bottom: 2rem; }
-  .hero-photo { position: relative; order: 2; width: 100%; height: 400px; z-index: 0; }
-  .hero-photo img { object-fit: contain; object-position: center; }
-  .hero-shade { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }

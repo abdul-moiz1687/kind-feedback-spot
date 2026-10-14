@@ -20,5 +20,5 @@ export function TypedRole({ text }: { text: string }) {
     return () => window.clearInterval(timer);
   }, [text]);
 
-  return <span className="typed-role"><span className="sr-only">{text}</span><span aria-hidden="true" className="invisible">{text}</span><span aria-hidden="true" className="typed-role-text">{visible}<span className={typing ? "typing-caret" : "typing-caret typing-finished"}>|</span></span></span>;
+  return <span className="typed-role"><span className="sr-only">{text}</span><span aria-hidden="true" className="invisible">{text}|</span><span aria-hidden="true" className="typed-role-text">{visible}<span className={typing ? "typing-caret" : "typing-caret typing-finished"}>|</span></span></span>;
 }

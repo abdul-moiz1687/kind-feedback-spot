@@ -3,5 +3,5 @@
 - [x] Connect home page, fonts, themes and page metadata.
 - [x] Verify layouts, navigation, themes, downloads and contact states (simulated delivery; actual inbox receipt remains unverified).
 - [x] Update portrait presentation, hero greeting, user-provided About copy, skill/social icons and section headings.
-- [ ] Remove name beside logo, animate hero role, and polish project cards and contact form for recruiters.
-- [ ] Check updated portfolio on desktop and phone-sized screens.
+- [x] Remove name beside logo, animate hero role, and polish project cards and contact form for recruiters.
+- [x] Check updated portfolio on desktop and phone-sized screens; form error/retry/success verified with simulated responses, not actual email delivery.

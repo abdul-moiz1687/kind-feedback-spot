@@ -61,8 +61,10 @@ export function Navbar() {
         Skip to content
       </a>
       <nav className="container-site flex h-16 items-center justify-between gap-4" aria-label="Main">
-        <a href="#top" className="flex min-w-0 items-center gap-2.5" aria-label={`${profile.name} — home`}>
-          <Monogram className="h-8 w-8 shrink-0" />
+        <a href="#top" className="group flex min-w-0 items-center gap-3" aria-label={`${profile.name} — home`}>
+          <span className="brand-tag rounded-md border border-border-strong bg-surface px-2.5 py-1 text-base transition-colors group-hover:border-primary">
+            <span className="text-primary">&lt;</span>AM<span className="text-primary"> /&gt;</span>
+          </span>
           <span className="hidden truncate font-display text-sm font-semibold sm:inline">{profile.name}</span>
         </a>
         <ul className="hidden items-center gap-1 lg:flex">

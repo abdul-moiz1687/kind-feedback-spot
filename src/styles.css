@@ -255,6 +255,20 @@
   .hero-photo { width: min(300px, 82vw); margin-inline: auto; }
   .portfolio-hero > .container-site { padding-top: 8rem; padding-bottom: 2rem; }
 }
+.bg-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  animation: blob-drift 22s ease-in-out infinite alternate;
+}
+.bg-blob-2 { animation-duration: 28s; animation-delay: -6s; }
+.bg-blob-3 { animation-duration: 34s; animation-delay: -12s; }
+@keyframes blob-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(8vw, 6vh) scale(1.15); }
+  100% { transform: translate(-6vw, -4vh) scale(0.9); }
+}
+.brand-tag { font-family: var(--font-mono); font-weight: 600; letter-spacing: -0.02em; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

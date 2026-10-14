@@ -7,10 +7,13 @@ import { Reveal, SectionHeader, ext } from "./ui";
 import { Projects } from "./Projects";
 import { Contact } from "./Contact";
 import { SkillIcon, SocialLinks } from "./icons";
+import { AnimatedBackground, CursorFollower } from "./Effects";
 
 export function Portfolio() {
   return (
-    <div id="top">
+    <div id="top" className="relative isolate">
+      <AnimatedBackground />
+      <CursorFollower />
       <Navbar />
       <main id="main">
         <section className="portfolio-hero relative isolate overflow-hidden border-b border-border">

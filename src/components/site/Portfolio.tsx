@@ -8,6 +8,7 @@ import { Projects } from "./Projects";
 import { Contact } from "./Contact";
 import { SkillIcon, SocialLinks } from "./icons";
 import { AnimatedBackground, CursorFollower } from "./Effects";
+import { TypedRole } from "./TypedRole";
 
 export function Portfolio() {
   return (
@@ -23,10 +24,11 @@ export function Portfolio() {
               <Reveal className="hero-copy">
                 <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">Hello, I'm</p>
                 <h1 className="hero-name mt-4 font-semibold leading-[1.05]">Abdul Moiz</h1>
-                <p className="mt-3 font-display text-2xl font-semibold sm:text-3xl">{profile.role}</p>
+                <p className="mt-3 font-display text-2xl font-semibold sm:text-3xl"><TypedRole text={profile.role} /></p>
                 <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">{profile.tagline}</p>
                 <div className="mt-8 flex flex-wrap gap-3"><Button asChild size="lg" className="h-12"><a href="#projects">View my work<ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12"><a href={profile.cvPath} download={profile.cvFilename}>Download CV<ArrowDownToLine /></a></Button></div>
-                <div className="mt-8"><SocialLinks /><span className="mt-4 flex items-center gap-2 text-xs text-muted-foreground"><MapPin size={14} />{profile.location}</span></div>
+                <ul aria-label="Core technologies" className="mt-6 flex flex-wrap gap-2">{["React", "Next.js", "Node.js", "MongoDB"].map((skill) => <li key={skill} className="flex items-center gap-2 rounded-md border border-border bg-surface/70 px-3 py-2 text-xs text-muted-foreground"><SkillIcon name={skill} />{skill}</li>)}</ul>
+                <div className="mt-6"><SocialLinks /><span className="mt-4 flex items-center gap-2 text-xs text-muted-foreground"><MapPin size={14} />{profile.location}</span></div>
               </Reveal>
               <Reveal delay={0.12} className="hero-photo shrink-0 self-center">
                 <div className="relative">

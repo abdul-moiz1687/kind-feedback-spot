@@ -64,7 +64,6 @@ export function Navbar() {
           <span className="brand-tag rounded-md border border-border-strong bg-surface px-2.5 py-1 text-base transition-colors group-hover:border-primary">
             <span className="text-primary">&lt;</span>AM<span className="text-primary"> /&gt;</span>
           </span>
-          <span className="hidden truncate font-display text-sm font-semibold sm:inline">{profile.name}</span>
         </a>
         <ul className="hidden items-center gap-1 lg:flex">
           {navLinks.map((l) => (

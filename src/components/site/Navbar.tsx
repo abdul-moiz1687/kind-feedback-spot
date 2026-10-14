@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useScroll, useSpring } from "motion/react";
 import { navLinks, profile } from "@/data/site";
-import { Monogram } from "./Brand";
 import { ThemeSelector } from "./theme";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";

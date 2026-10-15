@@ -5,3 +5,4 @@
 - [x] Update portrait presentation, hero greeting, user-provided About copy, skill/social icons and section headings.
 - [x] Remove name beside logo, animate hero role, and polish project cards and contact form for recruiters.
 - [x] Check updated portfolio on desktop and phone-sized screens; form error/retry/success verified with simulated responses, not actual email delivery.
+- [x] Make background and section animations more visible and verify desktop, mobile, and reduced-motion rendering.

@@ -16,3 +16,4 @@
 - Apply theme presets through semantic CSS tokens and the root theme initializer; this keeps every section consistent when themes change.
 - Share skill-brand rendering and social links through the site icon module, with skill content in the central data module; this keeps recognizable icons and accessible link labels consistent across sections.
 - Keep hero typing in a browser-effect-driven site component with a stable full-text footprint and reduced-motion fallback; this prevents hydration and layout shifts while retaining accessible text.
+- Keep decorative motion and scroll progress in the shared Effects module, and section entrances in Reveal; use theme tokens and reduced-motion fallbacks to keep animation consistent and accessible.

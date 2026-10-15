@@ -20,7 +20,7 @@ export function AnimatedBackground() {
     <>
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-20 overflow-hidden" data-animated-background>
         <motion.div className="motion-grid absolute -inset-16 opacity-60"
-          animate={reduce ? undefined : { x: [0, 56], y: [0, 56] }}
+          animate={reduce ? false : { x: [0, 56], y: [0, 56] }}
           transition={{ duration: 14, repeat: Infinity, ease: "linear" }} />
         <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1440 900" preserveAspectRatio="none" fill="none">
           {traces.map((d, i) => <g key={d} className={i % 2 === 0 ? "text-primary" : "text-success"}>
@@ -33,7 +33,7 @@ export function AnimatedBackground() {
         </svg>
         {marks.map((d, i) => <motion.span key={i} className="absolute font-mono text-lg text-primary/40"
           style={{ left: `${d.left}%`, top: `${d.top}%` }}
-          animate={reduce ? undefined : { y: [16, -36, 16], opacity: [0.15, 0.6, 0.15], rotate: [0, 90, 0] }}
+          animate={reduce ? false : { y: [16, -36, 16], opacity: [0.15, 0.6, 0.15], rotate: [0, 90, 0] }}
           transition={{ duration: d.dur, delay: i * -0.6, repeat: Infinity, ease: "easeInOut" }}>+</motion.span>)}
       </div>
       <motion.div aria-hidden="true" className="pointer-events-none fixed inset-x-0 top-0 z-[70] h-0.5 origin-left bg-primary" style={{ scaleX: reduce ? scrollYProgress : progress }} />

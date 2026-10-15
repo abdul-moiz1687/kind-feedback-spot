@@ -20,7 +20,7 @@ export function Contact() {
     } catch { setStatus("error"); }
   };
   return (
-    <section id="contact" className="border-t border-border bg-surface py-20 md:py-28">
+    <section id="contact" className="border-t border-border bg-surface/60 backdrop-blur-[2px] py-20 md:py-28">
       <div className="container-site">
         <SectionHeader index="06" eyebrow="Get in touch" title={<>Let's build<br />something meaningful.</>} intro="Have a project in mind, an opportunity, or just want to say hello? I'd love to hear from you." />
         <div className="grid gap-12 md:grid-cols-2 md:gap-20">

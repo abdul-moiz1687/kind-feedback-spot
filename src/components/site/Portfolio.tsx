@@ -1,12 +1,14 @@
 import { ArrowDown, ArrowDownToLine, ArrowUpRight, Award, GraduationCap, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { about, certifications, education, navLinks, ongoingTraining, profile, skillGroups } from "@/data/site";
+import { about, certifications, education, ongoingTraining, profile } from "@/data/site";
 import portrait from "@/assets/abdul-moiz.png.asset.json";
 import { Navbar } from "./Navbar";
 import { Reveal, SectionHeader, ext } from "./ui";
 import { Projects } from "./Projects";
 import { Contact } from "./Contact";
-import { SkillIcon, SocialLinks } from "./icons";
+import { SocialLinks } from "./icons";
+import { Skills } from "./Skills";
+import { Footer } from "./Footer";
 import { AnimatedBackground, CursorFollower } from "./Effects";
 import { TypedRole } from "./TypedRole";
 
@@ -65,12 +67,12 @@ export function Portfolio() {
             </Reveal>
           </div></div></section>
         <Projects />
-        <section id="skills" className="border-t border-border bg-surface/60 backdrop-blur-[2px] py-20 md:py-28"><div className="container-site"><SectionHeader index="03" eyebrow="Skills & technologies" title="The tools behind the work." intro="From the first interface to the final API, a practical stack for building complete web applications." /><div className="grid gap-10 md:grid-cols-3">{skillGroups.map(({ title, skills }, i) => <Reveal key={title} delay={i * 0.08}><h3 className="mb-6 border-t border-border-strong pt-5 text-xl font-semibold">{title}</h3><ul className="space-y-3">{skills.map((skill) => <li key={skill} className="flex min-h-10 items-center gap-4 border-b border-border pb-3 text-sm text-muted-foreground"><SkillIcon name={skill} />{skill}</li>)}</ul></Reveal>)}</div></div></section>
+        <Skills />
         <section id="education" className="border-t border-border py-20 md:py-28"><div className="container-site"><SectionHeader index="04" eyebrow="Education" title="A foundation for what's next." />{education.map((e) => <Reveal key={e.school} className="grid gap-4 border-t border-border py-7 md:grid-cols-[1fr_2fr]"><p className="font-mono text-xs text-muted-foreground">{e.period}</p><div><h3 className="flex items-start gap-3 text-xl font-semibold"><GraduationCap className="mt-1 h-5 w-5 shrink-0 text-primary" />{e.program}</h3><p className="mt-2 text-sm text-muted-foreground">{e.school}</p>{e.status && <span className="mt-3 inline-block text-xs text-success">{e.status}</span>}</div></Reveal>)}<div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-7"><div><p className="text-sm font-medium">{ongoingTraining.title}</p><p className="mt-1 text-sm text-muted-foreground">{ongoingTraining.issuer}</p></div><span className="rounded-md bg-accent px-3 py-1.5 text-xs text-accent-foreground">{ongoingTraining.status}</span></div></div></section>
         <section id="certifications" className="border-t border-border py-20 md:py-28"><div className="container-site"><SectionHeader index="05" eyebrow="Certifications" title="Learning, put into practice." intro="Credentials across web development, technology, and business." /><div className="grid gap-4 md:grid-cols-2">{certifications.map((c, i) => <Reveal key={c.file} delay={i * 0.04}><a href={c.file} {...ext} className="group flex h-full items-start gap-4 rounded-lg border border-border p-6 transition-colors hover:border-border-strong hover:bg-surface"><Award className="mt-1 h-6 w-6 shrink-0 text-primary" /><div className="min-w-0 flex-1"><h3 className="text-base font-semibold leading-snug">{c.title}</h3><p className="mt-3 text-sm text-muted-foreground">{c.issuer}</p><p className="mt-2 font-mono text-[11px] text-muted-foreground">{c.date}</p></div><ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary" /></a></Reveal>)}</div></div></section>
         <Contact />
       </main>
-      <footer className="border-t border-border py-12"><div className="container-site"><div className="flex flex-col gap-8 border-b border-border pb-8 md:flex-row md:items-start md:justify-between"><div><p className="font-display text-lg font-semibold">Abdul Moiz<span className="text-primary">.</span></p><p className="mt-1 text-sm text-muted-foreground">{profile.role} — {profile.location}</p></div><nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2">{navLinks.map((link) => <a key={link.id} href={`#${link.id}`} className="text-sm text-muted-foreground transition-colors hover:text-foreground">{link.label}</a>)}</nav><SocialLinks /></div><div className="flex flex-wrap items-center justify-between gap-4 pt-6"><p className="text-xs text-muted-foreground">© 2026 Abdul Moiz. All rights reserved.</p><a href="#top" className="flex items-center gap-2 text-xs text-muted-foreground">Back to top<ArrowUpRight size={14} /></a></div></div></footer>
+      <Footer />
     </div>
   );
 }

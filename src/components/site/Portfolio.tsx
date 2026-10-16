@@ -18,7 +18,6 @@ export function Portfolio() {
       <Navbar />
       <main id="main">
         <section className="portfolio-hero relative isolate overflow-hidden border-b border-border">
-          <div className="bg-grid fade-mask absolute inset-0 -z-10" aria-hidden="true" />
           <div className="container-site relative flex flex-col justify-center pb-12 pt-36 md:pb-16 md:pt-40">
             <div className="flex flex-col gap-12 md:flex-row md:items-center md:justify-between md:gap-16">
               <Reveal className="hero-copy">
@@ -44,7 +43,6 @@ export function Portfolio() {
             <Reveal className="mx-auto w-full max-w-[360px]">
               <div className="relative">
                 <div aria-hidden="true" className="absolute -left-4 -top-4 h-full w-full rounded-2xl border-2 border-primary/40" />
-                <div aria-hidden="true" className="absolute -bottom-5 -right-5 h-28 w-28 rounded-2xl bg-grid opacity-70" />
                 <div className="relative overflow-hidden rounded-2xl border border-border-strong bg-surface shadow-2xl">
                   <img src={portrait.url} alt="Abdul Moiz portrait" loading="lazy" className="aspect-[4/5] w-full object-cover object-top" />
                   <div className="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-xl border border-border bg-background/85 px-4 py-3 backdrop-blur">

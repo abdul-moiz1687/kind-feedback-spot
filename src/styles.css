@@ -69,6 +69,21 @@
   --input: oklch(1 0 0 / 14%);
   --ring: oklch(0.64 0.19 260);
   --grid-line: oklch(1 0 0 / 5%);
+  --brand-html: oklch(0.67 0.2 35);
+  --brand-css: oklch(0.65 0.2 285);
+  --brand-javascript: oklch(0.88 0.17 98);
+  --brand-typescript: oklch(0.65 0.15 250);
+  --brand-react: oklch(0.82 0.13 220);
+  --brand-tailwind: oklch(0.75 0.13 220);
+  --brand-node: oklch(0.72 0.16 145);
+  --brand-mongo: oklch(0.7 0.18 145);
+  --brand-jwt: oklch(0.73 0.18 345);
+  --brand-firebase: oklch(0.8 0.17 75);
+  --brand-git: oklch(0.67 0.21 32);
+  --brand-vite: oklch(0.7 0.19 300);
+  --brand-vscode: oklch(0.68 0.16 245);
+  --brand-postman: oklch(0.72 0.19 40);
+  --brand-netlify: oklch(0.75 0.14 180);
   color-scheme: dark;
 }
 
@@ -256,6 +271,32 @@
   .portfolio-hero > .container-site { padding-top: 8rem; padding-bottom: 2rem; }
 }
 .ambient-waves { filter: blur(2px); }
+.skill-brand { color: var(--skill-color, var(--foreground)); }
+[data-brand="HTML5"] { --skill-color: var(--brand-html); }
+[data-brand="CSS3"] { --skill-color: var(--brand-css); }
+[data-brand="JavaScript"] { --skill-color: var(--brand-javascript); }
+[data-brand="TypeScript"] { --skill-color: var(--brand-typescript); }
+[data-brand="React"] { --skill-color: var(--brand-react); }
+[data-brand="Tailwind CSS"] { --skill-color: var(--brand-tailwind); }
+[data-brand="Node.js"] { --skill-color: var(--brand-node); }
+[data-brand="MongoDB"] { --skill-color: var(--brand-mongo); }
+[data-brand="JWT Authentication"] { --skill-color: var(--brand-jwt); }
+[data-brand="Firebase"] { --skill-color: var(--brand-firebase); }
+[data-brand="Git"] { --skill-color: var(--brand-git); }
+[data-brand="Vite"] { --skill-color: var(--brand-vite); }
+[data-brand="VS Code"] { --skill-color: var(--brand-vscode); }
+[data-brand="Postman"] { --skill-color: var(--brand-postman); }
+[data-brand="Netlify"] { --skill-color: var(--brand-netlify); }
+.skill-icon-well {
+  background: color-mix(in oklab, var(--skill-color, var(--foreground)) 10%, var(--surface));
+  color: var(--skill-color, var(--foreground));
+  transition: transform 250ms ease, background-color 250ms ease;
+}
+.skill-tile { transition: border-color 250ms ease, transform 250ms ease, background-color 250ms ease; }
+.skill-tile:hover { border-color: color-mix(in oklab, var(--skill-color, var(--primary)) 55%, var(--border)); background: var(--surface-2); transform: translateY(-3px); }
+.skill-tile:hover .skill-icon-well { transform: scale(1.08) rotate(-5deg); }
+.footer-link { transition: color 200ms ease; }
+.footer-link:hover { color: var(--primary); }
 .brand-tag { font-family: var(--font-mono); font-weight: 600; letter-spacing: 0; }
 .typed-role { position: relative; display: inline-block; }
 .typed-role-text { position: absolute; inset: 0; }

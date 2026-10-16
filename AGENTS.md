@@ -15,5 +15,6 @@
 - Reference uploaded media through `.asset.json` pointers; this keeps binary assets out of source control.
 - Apply theme presets through semantic CSS tokens and the root theme initializer; this keeps every section consistent when themes change.
 - Share skill-brand rendering and social links through the site icon module, with skill content in the central data module; this keeps recognizable icons and accessible link labels consistent across sections.
+- Keep skills and footer presentation in dedicated site section modules and brand colors in global CSS tokens; this keeps the portfolio composition lean and brand styling theme-safe.
 - Keep hero typing in a browser-effect-driven site component with a stable full-text footprint and reduced-motion fallback; this prevents hydration and layout shifts while retaining accessible text.
 - Keep decorative motion and scroll progress in the shared Effects module, and section entrances in Reveal; use theme tokens and reduced-motion fallbacks to keep animation consistent and accessible.

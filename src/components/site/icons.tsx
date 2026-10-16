@@ -1,6 +1,7 @@
 import type { IconType } from "react-icons";
 import { SiHtml5, SiCss, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiNodedotjs, SiExpress, SiMongodb, SiJsonwebtokens, SiFirebase, SiGit, SiGithub, SiVite, SiPostman, SiVercel, SiNetlify } from "react-icons/si";
 import { FaGithub, FaLinkedinIn, FaInstagram, FaWhatsapp } from "react-icons/fa6";
+import { TbBrandVscode } from "react-icons/tb";
 import { CodeXml, MonitorSmartphone, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { socials } from "@/data/site";
@@ -12,13 +13,14 @@ const skillIcons: Record<string, IconType> = {
   "Node.js": SiNodedotjs, "Express.js": SiExpress, MongoDB: SiMongodb,
   "JWT Authentication": SiJsonwebtokens, Firebase: SiFirebase, Git: SiGit,
   GitHub: SiGithub, Vite: SiVite, Postman: SiPostman, Vercel: SiVercel, Netlify: SiNetlify,
+  "VS Code": TbBrandVscode,
 };
 
-export function SkillIcon({ name }: { name: string }) {
+export function SkillIcon({ name, className = "h-5 w-5" }: { name: string; className?: string }) {
   const Icon = skillIcons[name];
-  if (Icon) return <Icon aria-hidden="true" className="h-5 w-5 shrink-0 text-primary" />;
+  if (Icon) return <Icon aria-hidden="true" data-brand={name} className={`skill-brand shrink-0 ${className}`} />;
   const Fallback = name === "Responsive Design" ? MonitorSmartphone : name === "REST APIs" ? Network : CodeXml;
-  return <Fallback aria-hidden="true" className="h-5 w-5 shrink-0 text-primary" />;
+  return <Fallback aria-hidden="true" className={`shrink-0 text-primary ${className}`} />;
 }
 
 const socialItems = [

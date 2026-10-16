@@ -1,5 +1,5 @@
 # Portfolio completion
-- [ ] Polish skills with colored brand icons and improve the footer; verify desktop, mobile and theme readability.
+- [x] Polish skills with colored brand icons and improve the footer; verified desktop, mobile, footer navigation and all four themes.
 - [x] Complete opening, About, Projects, Skills, Education, Certifications, Contact and footer.
 - [x] Connect home page, fonts, themes and page metadata.
 - [x] Verify layouts, navigation, themes, downloads and contact states (simulated delivery; actual inbox receipt remains unverified).

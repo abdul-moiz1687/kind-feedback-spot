@@ -6,3 +6,4 @@
 - [x] Remove name beside logo, animate hero role, and polish project cards and contact form for recruiters.
 - [x] Check updated portfolio on desktop and phone-sized screens; form error/retry/success verified with simulated responses, not actual email delivery.
 - [x] Make background and section animations more visible and verify desktop, mobile, and reduced-motion rendering.
+- [x] Replace circuit lines and grids with smooth background-only waves; verify desktop and mobile motion and text readability.

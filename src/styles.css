@@ -255,12 +255,7 @@
   .hero-photo { width: min(300px, 82vw); margin-inline: auto; }
   .portfolio-hero > .container-site { padding-top: 8rem; padding-bottom: 2rem; }
 }
-.motion-grid {
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
+.ambient-waves { filter: blur(2px); }
 .brand-tag { font-family: var(--font-mono); font-weight: 600; letter-spacing: 0; }
 .typed-role { position: relative; display: inline-block; }
 .typed-role-text { position: absolute; inset: 0; }

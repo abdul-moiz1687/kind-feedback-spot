@@ -1,40 +1,38 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring } from "motion/react";
 
-/** Theme-aware moving circuit traces remain visible without obscuring content. */
+/** Soft, flowing ribbons stay behind the page without crossing over its content. */
 export function AnimatedBackground() {
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
-  const traces = useMemo(() => [
-    "M -100 180 H 220 L 360 320 H 820 L 1020 120 H 1540",
-    "M -100 640 H 180 L 380 440 H 960 L 1140 620 H 1540",
-    "M 120 -100 V 100 L 280 260 V 580 L 120 740 V 1000",
-    "M 1260 -100 V 220 L 1100 380 V 640 L 1260 800 V 1000",
-    "M -100 820 H 520 L 680 660 H 880 L 1040 820 H 1540",
-  ], []);
-  const marks = useMemo(() => Array.from({ length: 12 }, (_, i) => ({
-    left: 5 + (i * 37) % 90, top: (i * 53) % 100, dur: 7 + i % 4,
-  })), []);
+  const leftWave: [string, string, string] = [
+    "M -160 -120 C 480 60 -240 390 230 620 C 440 730 190 950 -160 1020 L -280 1020 C 80 720 160 780 -70 560 C -420 280 180 100 -280 -120 Z",
+    "M -160 -120 C 160 170 350 300 70 590 C -100 770 440 850 -160 1020 L -280 1020 C 140 800 -270 740 -100 510 C 130 230 -80 160 -280 -120 Z",
+    "M -160 -120 C 480 60 -240 390 230 620 C 440 730 190 950 -160 1020 L -280 1020 C 80 720 160 780 -70 560 C -420 280 180 100 -280 -120 Z",
+  ];
+  const rightWave: [string, string, string] = [
+    "M 1580 -120 C 1090 120 1630 300 1250 540 C 1060 670 1280 900 1580 1020 L 1710 1020 C 1440 760 1300 680 1430 500 C 1790 200 1330 80 1710 -120 Z",
+    "M 1580 -120 C 1340 100 1040 340 1390 570 C 1620 750 1120 840 1580 1020 L 1710 1020 C 1350 770 1730 660 1540 470 C 1290 230 1550 80 1710 -120 Z",
+    "M 1580 -120 C 1090 120 1630 300 1250 540 C 1060 670 1280 900 1580 1020 L 1710 1020 C 1440 760 1300 680 1430 500 C 1790 200 1330 80 1710 -120 Z",
+  ];
   return (
     <>
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-20 overflow-hidden" data-animated-background>
-        <motion.div className="motion-grid absolute -inset-16 opacity-60"
-          animate={reduce ? false : { x: [0, 56], y: [0, 56] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "linear" }} />
-        <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1440 900" preserveAspectRatio="none" fill="none">
-          {traces.map((d, i) => <g key={d} className={i % 2 === 0 ? "text-primary" : "text-success"}>
-            <path d={d} stroke="currentColor" strokeWidth="1" opacity="0.12" vectorEffect="non-scaling-stroke" />
-            <motion.path d={d} stroke="currentColor" strokeWidth="2" strokeLinecap="round" vectorEffect="non-scaling-stroke"
-              initial={{ pathLength: 0.18, pathSpacing: 0.82, pathOffset: 0, opacity: 0.45 }}
-              animate={reduce ? { opacity: 0.15 } : { pathOffset: [0, 1], opacity: [0.25, 0.65, 0.25] }}
-              transition={{ duration: 6 + i, delay: i * -1.5, repeat: Infinity, ease: "linear" }} />
-          </g>)}
+        <svg key={reduce ? "still" : "flowing"} className="ambient-waves absolute inset-0 h-full w-full" viewBox="0 0 1440 900" preserveAspectRatio="none">
+          <motion.path className="text-primary" fill="currentColor" opacity="0.18" d={leftWave[0]}
+            animate={reduce ? false : { d: leftWave }}
+            transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }} />
+          <motion.path className="text-primary" fill="currentColor" opacity="0.08" d={leftWave[1]}
+            animate={reduce ? false : { d: [leftWave[1], leftWave[0], leftWave[1]] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }} />
+          <motion.path className="text-success" fill="currentColor" opacity="0.14" d={rightWave[0]}
+            animate={reduce ? false : { d: rightWave }}
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} />
+          <motion.path className="text-success" fill="currentColor" opacity="0.06" d={rightWave[1]}
+            animate={reduce ? false : { d: [rightWave[1], rightWave[0], rightWave[1]] }}
+            transition={{ duration: 23, repeat: Infinity, ease: "easeInOut" }} />
         </svg>
-        {marks.map((d, i) => <motion.span key={i} className="absolute font-mono text-lg text-primary/40"
-          style={{ left: `${d.left}%`, top: `${d.top}%` }}
-          animate={reduce ? false : { y: [16, -36, 16], opacity: [0.15, 0.6, 0.15], rotate: [0, 90, 0] }}
-          transition={{ duration: d.dur, delay: i * -0.6, repeat: Infinity, ease: "easeInOut" }}>+</motion.span>)}
       </div>
       <motion.div aria-hidden="true" className="pointer-events-none fixed inset-x-0 top-0 z-[70] h-0.5 origin-left bg-primary" style={{ scaleX: reduce ? scrollYProgress : progress }} />
     </>

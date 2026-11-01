@@ -1,4 +1,5 @@
 # Portfolio completion
+- [ ] Replace waves with floating particles; verify movement, pointer response, mobile and reduced-motion behavior.
 - [x] Polish skills with colored brand icons and improve the footer; verified desktop, mobile, footer navigation and all four themes.
 - [x] Complete opening, About, Projects, Skills, Education, Certifications, Contact and footer.
 - [x] Connect home page, fonts, themes and page metadata.

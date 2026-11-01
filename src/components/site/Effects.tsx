@@ -11,7 +11,15 @@ const particles = Array.from({ length: 72 }, (_, i) => ({
 
 /** Floating particles remain behind content without capturing interactions. */
 export function AnimatedBackground() {
-  const reduce = useReducedMotion();
+  const preference = useReducedMotion();
+  const [reduce, setReduce] = useState(preference);
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduce(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
   const pointerX = useMotionValue(0);

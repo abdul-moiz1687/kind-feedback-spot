@@ -3,27 +3,27 @@ import { ArrowUpRight, Code2, ExternalLink, Github, Layers, ShoppingBag } from "
 import { projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import { Reveal, SectionHeader, ext } from "./ui";
-import shopco from "@/assets/projects/shopco.jpg.asset.json";
-import maintainiq from "@/assets/projects/maintainiq.jpg.asset.json";
-import timenest from "@/assets/projects/timenest.jpg.asset.json";
-import applio from "@/assets/projects/applio.jpg.asset.json";
-import voido from "@/assets/projects/void.jpg.asset.json";
-import shopflow from "@/assets/projects/shopflow.jpg.asset.json";
-import campusConnect from "@/assets/projects/campus-connect.jpg.asset.json";
-import electroshop from "@/assets/projects/electroshop.jpg.asset.json";
-import portfolioShot from "@/assets/projects/moizdev-portfolio.jpg.asset.json";
+import shopco from "@/assets/projects/shopco.jpg";
+import maintainiq from "@/assets/projects/maintainiq.jpg";
+import timenest from "@/assets/projects/timenest.jpg";
+import applio from "@/assets/projects/applio.jpg";
+import voido from "@/assets/projects/void.jpg";
+import shopflow from "@/assets/projects/shopflow.jpg";
+import campusConnect from "@/assets/projects/campus-connect.jpg";
+import electroshop from "@/assets/projects/electroshop.jpg";
+import portfolioShot from "@/assets/projects/moizdev-portfolio.jpg";
 
 const filters = ["All", "Full-Stack", "Frontend", "Backend"] as const;
 const images: Record<string, string> = {
-  "SHOP.CO": shopco.url,
-  MaintainIQ: maintainiq.url,
-  TimeNest: timenest.url,
-  Applio: applio.url,
-  "VOIDØ": voido.url,
-  ShopFlow: shopflow.url,
-  "Campus Connect": campusConnect.url,
-  ElectroShop: electroshop.url,
-  "React Portfolio App": portfolioShot.url,
+  "SHOP.CO": shopco,
+  MaintainIQ: maintainiq,
+  TimeNest: timenest,
+  Applio: applio,
+  "VOIDØ": voido,
+  ShopFlow: shopflow,
+  "Campus Connect": campusConnect,
+  ElectroShop: electroshop,
+  "React Portfolio App": portfolioShot,
 };
 
 export function Projects() {

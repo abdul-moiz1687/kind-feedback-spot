@@ -270,7 +270,7 @@
   .hero-photo { width: min(300px, 82vw); margin-inline: auto; }
   .portfolio-hero > .container-site { padding-top: 8rem; padding-bottom: 2rem; }
 }
-.ambient-waves { filter: blur(2px); }
+.ambient-particles { opacity: 0.85; }
 .skill-brand { color: var(--skill-color, var(--foreground)); }
 [data-brand="HTML5"] { --skill-color: var(--brand-html); }
 [data-brand="CSS3"] { --skill-color: var(--brand-css); }

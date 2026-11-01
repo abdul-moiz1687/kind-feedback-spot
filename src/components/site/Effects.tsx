@@ -1,37 +1,68 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring } from "motion/react";
 
-/** Soft, flowing ribbons stay behind the page without crossing over its content. */
+const particles = Array.from({ length: 72 }, (_, i) => ({
+  x: (i * 233 + 47) % 1440,
+  y: (i * 157 + 61) % 900,
+  radius: i % 9 === 0 ? 3 : i % 3 === 0 ? 2 : 1.25,
+  drift: 24 + (i * 7) % 55,
+  duration: 12 + i % 13,
+}));
+
+/** Floating particles remain behind content without capturing interactions. */
 export function AnimatedBackground() {
-  const reduce = useReducedMotion();
+  const preference = useReducedMotion();
+  const [reduce, setReduce] = useState(preference);
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduce(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
-  const leftWave: [string, string, string] = [
-    "M -160 -120 C 480 60 -240 390 230 620 C 440 730 190 950 -160 1020 L -280 1020 C 80 720 160 780 -70 560 C -420 280 180 100 -280 -120 Z",
-    "M -160 -120 C 160 170 350 300 70 590 C -100 770 440 850 -160 1020 L -280 1020 C 140 800 -270 740 -100 510 C 130 230 -80 160 -280 -120 Z",
-    "M -160 -120 C 480 60 -240 390 230 620 C 440 730 190 950 -160 1020 L -280 1020 C 80 720 160 780 -70 560 C -420 280 180 100 -280 -120 Z",
-  ];
-  const rightWave: [string, string, string] = [
-    "M 1580 -120 C 1090 120 1630 300 1250 540 C 1060 670 1280 900 1580 1020 L 1710 1020 C 1440 760 1300 680 1430 500 C 1790 200 1330 80 1710 -120 Z",
-    "M 1580 -120 C 1340 100 1040 340 1390 570 C 1620 750 1120 840 1580 1020 L 1710 1020 C 1350 770 1730 660 1540 470 C 1290 230 1550 80 1710 -120 Z",
-    "M 1580 -120 C 1090 120 1630 300 1250 540 C 1060 670 1280 900 1580 1020 L 1710 1020 C 1440 760 1300 680 1430 500 C 1790 200 1330 80 1710 -120 Z",
-  ];
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+  const driftX = useSpring(pointerX, { stiffness: 35, damping: 18 });
+  const driftY = useSpring(pointerY, { stiffness: 35, damping: 18 });
+
+  useEffect(() => {
+    if (reduce) { pointerX.set(0); pointerY.set(0); return; }
+    const move = (event: PointerEvent) => {
+      pointerX.set((event.clientX / window.innerWidth - 0.5) * 32);
+      pointerY.set((event.clientY / window.innerHeight - 0.5) * 24);
+    };
+    const reset = () => { pointerX.set(0); pointerY.set(0); };
+    window.addEventListener("pointermove", move, { passive: true });
+    window.addEventListener("pointerdown", move, { passive: true });
+    window.addEventListener("pointerup", reset, { passive: true });
+    window.addEventListener("blur", reset);
+    return () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerdown", move);
+      window.removeEventListener("pointerup", reset);
+      window.removeEventListener("blur", reset);
+    };
+  }, [reduce, pointerX, pointerY]);
+
   return (
     <>
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-20 overflow-hidden" data-animated-background>
-        <svg key={reduce ? "still" : "flowing"} className="ambient-waves absolute inset-0 h-full w-full" viewBox="0 0 1440 900" preserveAspectRatio="none">
-          <motion.path className="text-primary" fill="currentColor" opacity="0.18" d={leftWave[0]}
-            animate={reduce ? false : { d: leftWave }}
-            transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }} />
-          <motion.path className="text-primary" fill="currentColor" opacity="0.08" d={leftWave[1]}
-            animate={reduce ? false : { d: [leftWave[1], leftWave[0], leftWave[1]] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }} />
-          <motion.path className="text-success" fill="currentColor" opacity="0.14" d={rightWave[0]}
-            animate={reduce ? false : { d: rightWave }}
-            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} />
-          <motion.path className="text-success" fill="currentColor" opacity="0.06" d={rightWave[1]}
-            animate={reduce ? false : { d: [rightWave[1], rightWave[0], rightWave[1]] }}
-            transition={{ duration: 23, repeat: Infinity, ease: "easeInOut" }} />
+        <svg key={reduce ? "still" : "floating"} className="ambient-particles absolute inset-0 h-full w-full" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+          <motion.g data-particle-layer style={{ x: reduce ? 0 : driftX, y: reduce ? 0 : driftY }}>
+            {particles.map((particle, i) => (
+              <motion.circle key={i} data-particle cx={particle.x} cy={particle.y} r={particle.radius}
+                className={i % 3 === 0 ? "text-success" : i % 5 === 0 ? "text-muted-foreground" : "text-primary"}
+                fill="currentColor" opacity={0.45}
+                animate={reduce ? false : {
+                  cx: [particle.x, particle.x + (i % 2 ? -1 : 1) * particle.drift, particle.x],
+                  cy: [particle.y, particle.y - particle.drift, particle.y],
+                  opacity: [0.3, 0.75, 0.3],
+                }}
+                transition={{ duration: particle.duration, repeat: Infinity, ease: "easeInOut" }} />
+            ))}
+          </motion.g>
         </svg>
       </div>
       <motion.div aria-hidden="true" className="pointer-events-none fixed inset-x-0 top-0 z-[70] h-0.5 origin-left bg-primary" style={{ scaleX: reduce ? scrollYProgress : progress }} />

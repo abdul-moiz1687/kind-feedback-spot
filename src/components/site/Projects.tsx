@@ -15,15 +15,15 @@ import portfolioShot from "@/assets/projects/moizdev-portfolio.jpg";
 
 const filters = ["All", "Full-Stack", "Frontend", "Backend"] as const;
 const images: Record<string, string> = {
-  "SHOP.CO": shopco.url,
-  MaintainIQ: maintainiq.url,
-  TimeNest: timenest.url,
-  Applio: applio.url,
-  "VOIDØ": voido.url,
-  ShopFlow: shopflow.url,
-  "Campus Connect": campusConnect.url,
-  ElectroShop: electroshop.url,
-  "React Portfolio App": portfolioShot.url,
+  "SHOP.CO": shopco,
+  MaintainIQ: maintainiq,
+  TimeNest: timenest,
+  Applio: applio,
+  "VOIDØ": voido,
+  ShopFlow: shopflow,
+  "Campus Connect": campusConnect,
+  ElectroShop: electroshop,
+  "React Portfolio App": portfolioShot,
 };
 
 export function Projects() {

@@ -33,7 +33,7 @@ export function Portfolio() {
               <Reveal delay={0.12} className="hero-photo shrink-0 self-center">
                 <div className="relative">
                   <div aria-hidden="true" className="absolute -inset-3 rounded-2xl border border-border bg-surface/60" />
-                  <img src={portrait.url} alt="Abdul Moiz" className="relative aspect-[4/5] w-full rounded-xl border border-border-strong object-cover object-top" fetchPriority="high" />
+                  <img src={portrait} alt="Abdul Moiz" className="relative aspect-[4/5] w-full rounded-xl border border-border-strong object-cover object-top" fetchPriority="high" />
                 </div>
               </Reveal>
             </div>
@@ -46,7 +46,7 @@ export function Portfolio() {
               <div className="relative">
                 <div aria-hidden="true" className="absolute -left-4 -top-4 h-full w-full rounded-2xl border-2 border-primary/40" />
                 <div className="relative overflow-hidden rounded-2xl border border-border-strong bg-surface shadow-2xl">
-                  <img src={portrait.url} alt="Abdul Moiz portrait" loading="lazy" className="aspect-[4/5] w-full object-cover object-top" />
+                  <img src={portrait} alt="Abdul Moiz portrait" loading="lazy" className="aspect-[4/5] w-full object-cover object-top" />
                   <div className="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-xl border border-border bg-background/85 px-4 py-3 backdrop-blur">
                     <div><p className="font-display text-sm font-semibold">Abdul Moiz</p><p className="text-xs text-muted-foreground">{profile.role}</p></div>
                     <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><MapPin size={12} className="text-primary" />Karachi</span>

@@ -1,7 +1,7 @@
 import { ArrowDown, ArrowDownToLine, ArrowUpRight, Award, GraduationCap, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { about, certifications, education, ongoingTraining, profile } from "@/data/site";
-import portrait from "@/assets/abdul-moiz.png.asset.json";
+import portrait from "@/assets/abdul-moiz.png";
 import { Navbar } from "./Navbar";
 import { Reveal, SectionHeader, ext } from "./ui";
 import { Projects } from "./Projects";

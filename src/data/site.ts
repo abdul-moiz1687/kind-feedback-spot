@@ -32,9 +32,10 @@ export const about = {
 };
 
 export const skillGroups = [
-  { title: "Frontend", skills: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "Responsive Design"] },
-  { title: "Backend & Data", skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "JWT Authentication", "Firebase"] },
-  { title: "Tools & Workflow", skills: ["Git", "GitHub", "Vite", "VS Code", "Postman", "Vercel", "Netlify"] },
+  { title: "Frontend", skills: ["HTML5", "CSS3", "JavaScript", "React", "Next.js", "Tailwind CSS", "Bootstrap", "Responsive Design"] },
+  { title: "Backend & Data", skills: ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "Firebase", "Upstash Redis", "Cloudinary", "REST APIs", "GraphQL APIs", "JWT Authentication"] },
+  { title: "CMS & SEO", skills: ["WordPress", "Elementor", "WooCommerce", "Gutenberg", "Theme & Plugin Configuration", "WPForms", "Contact Form 7", "Rank Math SEO", "All-in-One WP Migration", "LocalWP", "Basic On-Page SEO", "Keyword Research", "Google Search Console", "Google PageSpeed Insights", "SEMrush (Basic familiarity)"] },
+  { title: "Tools & Workflow", skills: ["Git", "GitHub", "Vite", "VS Code", "Postman", "Vercel", "Netlify", "Gemini API", "Canva (Basic)", "Figma (Basic)"] },
 ];
 
 export const navLinks = [

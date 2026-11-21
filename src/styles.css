@@ -84,6 +84,20 @@
   --brand-vscode: oklch(0.68 0.16 245);
   --brand-postman: oklch(0.72 0.19 40);
   --brand-netlify: oklch(0.75 0.14 180);
+  --brand-bootstrap: oklch(0.58 0.18 300);
+  --brand-wordpress: oklch(0.58 0.025 245);
+  --brand-elementor: oklch(0.62 0.2 345);
+  --brand-woocommerce: oklch(0.61 0.17 35);
+  --brand-google: oklch(0.66 0.17 235);
+  --brand-semrush: oklch(0.7 0.19 35);
+  --brand-local: oklch(0.7 0.15 160);
+  --brand-upstash: oklch(0.66 0.17 20);
+  --brand-postgresql: oklch(0.63 0.12 250);
+  --brand-cloudinary: oklch(0.72 0.15 95);
+  --brand-graphql: oklch(0.67 0.19 345);
+  --brand-gemini: oklch(0.68 0.16 265);
+  --brand-figma: oklch(0.66 0.18 25);
+  --brand-forms: oklch(0.64 0.16 200);
   color-scheme: dark;
 }
 
@@ -287,6 +301,21 @@
 [data-brand="VS Code"] { --skill-color: var(--brand-vscode); }
 [data-brand="Postman"] { --skill-color: var(--brand-postman); }
 [data-brand="Netlify"] { --skill-color: var(--brand-netlify); }
+[data-brand="Bootstrap"] { --skill-color: var(--brand-bootstrap); }
+[data-brand="WordPress"], [data-brand="Gutenberg"], [data-brand="Theme & Plugin Configuration"], [data-brand="Contact Form 7"], [data-brand="All-in-One WP Migration"] { --skill-color: var(--brand-wordpress); }
+[data-brand="Elementor"] { --skill-color: var(--brand-elementor); }
+[data-brand="WooCommerce"] { --skill-color: var(--brand-woocommerce); }
+[data-brand="WPForms"] { --skill-color: var(--brand-forms); }
+[data-brand="Rank Math SEO"], [data-brand="Basic On-Page SEO"], [data-brand="Keyword Research"], [data-brand="SEMrush (Basic familiarity)"] { --skill-color: var(--brand-semrush); }
+[data-brand="LocalWP"] { --skill-color: var(--brand-local); }
+[data-brand="Google Search Console"], [data-brand="Google PageSpeed Insights"] { --skill-color: var(--brand-google); }
+[data-brand="Upstash Redis"] { --skill-color: var(--brand-upstash); }
+[data-brand="PostgreSQL"] { --skill-color: var(--brand-postgresql); }
+[data-brand="Cloudinary"] { --skill-color: var(--brand-cloudinary); }
+[data-brand="GraphQL APIs"] { --skill-color: var(--brand-graphql); }
+[data-brand="Gemini API"] { --skill-color: var(--brand-gemini); }
+[data-brand="Figma (Basic)"] { --skill-color: var(--brand-figma); }
+[data-brand="Canva (Basic)"] { --skill-color: var(--brand-google); }
 .skill-icon-well {
   background: color-mix(in oklab, var(--skill-color, var(--foreground)) 10%, var(--surface));
   color: var(--skill-color, var(--foreground));

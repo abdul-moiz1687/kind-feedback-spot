@@ -9,3 +9,5 @@
 - [x] Check updated portfolio on desktop and phone-sized screens; form error/retry/success verified with simulated responses, not actual email delivery.
 - [x] Make background and section animations more visible and verify desktop, mobile, and reduced-motion rendering.
 - [x] Replace circuit lines and grids with smooth background-only waves; verify desktop and mobile motion and text readability.
+- [ ] Update the projects list from the supplied project-information file, correcting existing entries and adding the requested project.
+- [ ] Expand and reorganize skills with CMS & SEO, requested frontend/backend technologies, and design/workflow tools; verify icons and responsive layout.

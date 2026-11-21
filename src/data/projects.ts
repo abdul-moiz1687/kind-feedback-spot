@@ -1,6 +1,5 @@
-// Projects — sourced exactly from the supplied project notes.
-// To add a screenshot: put the image in src/assets/projects/ , import it here,
-// and set `image` on the project. The card swaps the designed cover for it.
+// Portfolio project content. Screenshots are imported locally in Projects.tsx
+// so they remain available on Vercel and other self-hosted deployments.
 
 export type Project = {
   title: string;
@@ -8,37 +7,46 @@ export type Project = {
   type: "Frontend" | "Full-Stack" | "Backend";
   description: string;
   tech: string[];
-  url: string;
+  url?: string;
   repo?: string;
   image?: string;
 };
 
 export const projects: Project[] = [
   {
-    title: "SHOP.CO",
-    subtitle: "E-commerce Store",
+    title: "FIREBITE",
+    subtitle: "Full-Stack Restaurant Ordering Platform",
     type: "Full-Stack",
     description:
-      "A full-stack clothing store featuring product browsing, user authentication, cart management, and order creation, with REST APIs for product and order management.",
-    tech: ["React", "Vite", "Node.js", "Express", "MongoDB"],
+      "A restaurant ordering platform with menu browsing, cart management, delivery and pickup checkout, order tracking, WhatsApp ordering, and an admin dashboard. Gemini AI powers menu recommendations, while Upstash Redis rate-limits API requests.",
+    tech: ["Next.js", "React", "Tailwind CSS", "Firebase Firestore", "Firebase Admin", "Upstash Redis", "Gemini API", "Vercel"],
+    url: "https://firebite-restaurant-ordering.vercel.app/",
+  },
+  {
+    title: "SHOP.CO",
+    subtitle: "Full-Stack E-Commerce Platform",
+    type: "Full-Stack",
+    description:
+      "A full-stack shopping experience with customer authentication, product browsing and filtering, cart management, checkout, order placement, and order tracking, plus a separate admin dashboard for users, products, and order updates.",
+    tech: ["React", "JavaScript", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "REST API"],
     url: "https://shop-co-ecommerce-nyrk.vercel.app/",
   },
   {
-    title: "Applio",
-    subtitle: "Appliance Lifecycle Manager",
-    type: "Backend",
+    title: "APPLIO",
+    subtitle: "Digital Appliance Passport & Lifecycle Management Platform",
+    type: "Full-Stack",
     description:
-      "A backend-focused application for managing home appliances, warranty details, and maintenance history. Includes REST APIs for appliance and service-record CRUD operations, input validation, and JWT-protected routes.",
-    tech: ["Node.js", "Express", "MongoDB", "REST APIs", "JWT"],
+      "A full-stack appliance lifecycle platform for managing appliance records, warranties, service histories, and maintenance costs. It includes JWT authentication, QR-powered public digital passports, image uploads, and an admin dashboard for users, appliances, and service records.",
+    tech: ["React.js", "Vite", "JavaScript", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "Cloudinary", "Multer", "GSAP"],
     url: "https://applio-lifecycle.vercel.app/",
   },
   {
     title: "TimeNest",
-    subtitle: "Premium Wall Clock Store",
+    subtitle: "Full-Stack E-Commerce Website",
     type: "Full-Stack",
     description:
-      "A premium wall-clock ecommerce project built with React and Vite, focused on modern design, responsive layouts, and a seamless shopping experience. Backend integration is planned using an existing Node.js, Express.js, and MongoDB API.",
-    tech: ["React", "Vite"],
+      "A full-stack wall-clock store with product browsing, search and filters, cart, checkout, authentication, Cash on Delivery, order management, and product reviews. Its REST API uses MongoDB, with Cloudinary for product image uploads.",
+    tech: ["React 19", "Vite", "JavaScript", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "Cloudinary", "Three.js"],
     url: "https://timenest-wall-clock-store.vercel.app/",
   },
   {
@@ -94,5 +102,23 @@ export const projects: Project[] = [
       "A fully responsive personal portfolio built with React, featuring a clean UI, interactive components, and smooth navigation to showcase front-end projects and skills.",
     tech: ["React"],
     url: "https://moiz-dev-portfolio.vercel.app/",
+  },
+  {
+    title: "DevPulse",
+    subtitle: "Post Management REST API",
+    type: "Backend",
+    description:
+      "A REST API for developer journal posts, with complete CRUD operations, input validation, and centralized error handling.",
+    tech: ["Node.js", "Express.js", "MongoDB", "Mongoose", "REST API", "Postman"],
+    repo: "https://github.com/abdul-moiz1687/devpulse-post-management-api",
+  },
+  {
+    title: "Express Auth API",
+    subtitle: "Login & Signup APIs",
+    type: "Backend",
+    description:
+      "Registration and login APIs with duplicate-email validation, bcrypt password hashing, and JWT authentication for a protected route. User records are stored in a JSON file.",
+    tech: ["Node.js", "Express.js", "bcrypt", "JWT", "EJS", "JSON File System"],
+    repo: "https://github.com/abdul-moiz1687/express-auth-api",
   },
 ];

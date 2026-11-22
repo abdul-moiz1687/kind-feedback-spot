@@ -11,3 +11,5 @@
 - [x] Replace circuit lines and grids with smooth background-only waves; verify desktop and mobile motion and text readability.
 - [ ] Update the projects list from the supplied project-information file, correcting existing entries and adding the requested project.
 - [ ] Expand and reorganize skills with CMS & SEO, requested frontend/backend technologies, and design/workflow tools; verify icons and responsive layout.
+- [ ] Add CI/CD to skills, include the two DigiSkills certificates, and reflect the currently ongoing training status.
+- [ ] Verify the pending projects/skills updates and the new certificate entries in the preview; mobile layout was checked by the user.

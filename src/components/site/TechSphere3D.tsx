@@ -31,6 +31,7 @@ const points: Point[] = techTags.map((label, index) => {
 
 export function TechSphere3D() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const frameIdRef = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -55,8 +56,14 @@ export function TechSphere3D() {
     let pointerId: number | null = null;
     let lastPointerX = 0;
     let lastPointerY = 0;
-    let frameId = 0;
+    let isVisible = false;
     let lastTime = performance.now();
+
+    const scheduleFrame = () => {
+      if (isVisible && frameIdRef.current === null) {
+        frameIdRef.current = requestAnimationFrame(draw);
+      }
+    };
 
     const resize = () => {
       const bounds = canvas.getBoundingClientRect();
@@ -149,7 +156,8 @@ export function TechSphere3D() {
         );
       });
       context.globalAlpha = 1;
-      frameId = requestAnimationFrame(draw);
+      frameIdRef.current = null;
+      scheduleFrame();
     };
 
     const getHovered = (clientX: number, clientY: number) => {
@@ -200,16 +208,30 @@ export function TechSphere3D() {
     resize();
     const observer = new ResizeObserver(resize);
     observer.observe(canvas);
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      if (isVisible) {
+        lastTime = performance.now();
+        scheduleFrame();
+      } else if (frameIdRef.current !== null) {
+        cancelAnimationFrame(frameIdRef.current);
+        frameIdRef.current = null;
+      }
+    });
+    visibilityObserver.observe(canvas);
     canvas.addEventListener("pointerdown", handlePointerDown);
     canvas.addEventListener("pointermove", handlePointerMove);
     canvas.addEventListener("pointerup", handlePointerUp);
     canvas.addEventListener("pointercancel", handlePointerUp);
     canvas.addEventListener("pointerleave", handlePointerLeave);
-    frameId = requestAnimationFrame(draw);
 
     return () => {
-      cancelAnimationFrame(frameId);
+      if (frameIdRef.current !== null) {
+        cancelAnimationFrame(frameIdRef.current);
+        frameIdRef.current = null;
+      }
       observer.disconnect();
+      visibilityObserver.disconnect();
       canvas.removeEventListener("pointerdown", handlePointerDown);
       canvas.removeEventListener("pointermove", handlePointerMove);
       canvas.removeEventListener("pointerup", handlePointerUp);

@@ -25,8 +25,10 @@ export const FORMSPREE_ENDPOINT = "https://formspree.io/f/mjygoeqo";
 
 export const about = {
   paragraphs: [
-    "I'm Abdul Moiz, a web developer based in Karachi, Pakistan. Having completed SMIT's Modern Web Application Development course, I've developed practical skills in both frontend and backend development. Through hands-on projects, I've worked with React, Next.js, Node.js, Express.js, REST APIs, and MongoDB to build responsive interfaces and functional, database-driven applications.",
-    "Alongside web development, I've completed DigiSkills courses in SEO and WordPress. This allows me to explore how websites are developed, optimized, and made more accessible to their intended audiences. I enjoy solving practical problems, connecting clean user interfaces with reliable backend functionality, and continuously improving my skills by building real projects and learning new technologies.",
+    "I'm Abdul Moiz, a web developer based in Karachi, Pakistan. I completed SMIT's Modern Web Application Development course, where I studied both frontend and backend web development.",
+    "I work with React and Next.js for frontend development, along with Node.js, Express.js and MongoDB for backend functionality. I apply these technologies through practical projects. For example, I built Applio, an application for managing appliance records, warranties and service history. I also developed TimeNest, a full-stack e-commerce website where users can browse products, manage their cart and place orders.",
+    "Alongside web development, I completed DigiSkills courses in WordPress and SEO. I've practiced building websites using WordPress tools like Elementor and Gutenberg, and learned the fundamentals of on-page SEO.",
+    "My main focus is web development. I'm currently working on improving my problem-solving skills, building practical projects and developing my ability to create useful and reliable web applications.",
   ],
   approach: "Understand the problem. Keep the experience simple. Build with care.",
 };

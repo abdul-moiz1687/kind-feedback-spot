@@ -1,4 +1,12 @@
-import { ArrowDown, ArrowDownToLine, ArrowUpRight, Award, GraduationCap, MapPin } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import {
+  ArrowDown,
+  ArrowDownToLine,
+  ArrowUpRight,
+  Award,
+  GraduationCap,
+  MapPin,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { about, certifications, education, ongoingTraining, profile } from "@/data/site";
 import portrait from "@/assets/abdul-moiz.png";
@@ -11,6 +19,54 @@ import { Skills } from "./Skills";
 import { Footer } from "./Footer";
 import { AnimatedBackground, CursorFollower } from "./Effects";
 import { TypedRole } from "./TypedRole";
+
+function Counter({ target }: { target: number }) {
+  const [count, setCount] = useState(0);
+  const counterRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const element = counterRef.current;
+    if (!element) return;
+
+    let frameId = 0;
+    let started = false;
+    const start = () => {
+      if (started) return;
+      started = true;
+      const startTime = performance.now();
+      const duration = 900;
+
+      const animate = (time: number) => {
+        const progress = Math.min((time - startTime) / duration, 1);
+        const easedProgress = 1 - (1 - progress) ** 3;
+        setCount(Math.round(target * easedProgress));
+        if (progress < 1) frameId = requestAnimationFrame(animate);
+      };
+
+      frameId = requestAnimationFrame(animate);
+    };
+
+    if (typeof IntersectionObserver === "undefined") {
+      start();
+      return () => cancelAnimationFrame(frameId);
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        start();
+        observer.disconnect();
+      }
+    });
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frameId);
+    };
+  }, [target]);
+
+  return <span ref={counterRef}>{String(count).padStart(2, "0")}</span>;
+}
 
 export function Portfolio() {
   return (
@@ -61,7 +117,7 @@ export function Portfolio() {
                 <p className="mt-3 text-base leading-8">{about.approach}</p>
               </div>
               <div className="mt-8 grid grid-cols-3 gap-4">
-                {[["12", "Projects"], ["08", "Certificates"], ["MERN", "Stack"]].map(([n, l]) => <div key={l} className="rounded-xl border border-border p-4 text-center"><p className="font-display text-2xl font-semibold text-primary sm:text-3xl">{n}</p><p className="mt-1 text-xs text-muted-foreground">{l}</p></div>)}
+                {[["12", "Projects"], ["08", "Certificates"], ["MERN", "Stack"]].map(([n, l]) => <div key={l} className="rounded-xl border border-border p-4 text-center"><p className="font-display text-2xl font-semibold text-primary sm:text-3xl">{/^\d+$/.test(n) ? <Counter target={Number(n)} /> : n}</p><p className="mt-1 text-xs text-muted-foreground">{l}</p></div>)}
               </div>
               <div className="mt-8 flex flex-wrap gap-3"><Button asChild><a href="#contact">Let's talk<ArrowUpRight /></a></Button><Button asChild variant="outline"><a href={profile.cvPath} download={profile.cvFilename}>Download CV<ArrowDownToLine /></a></Button></div>
             </Reveal>

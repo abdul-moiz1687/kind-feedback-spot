@@ -49,7 +49,24 @@ export function Projects() {
               : <div className="flex h-full flex-col justify-between p-6"><div className="flex items-center justify-between text-muted-foreground"><span className="font-mono text-xs">PROJECT / {projectNumber}</span>{p.type === "Backend" ? <Code2 size={24} /> : p.subtitle.toLowerCase().includes("commerce") || p.subtitle.includes("Store") ? <ShoppingBag size={24} /> : <Layers size={24} />}</div><div><p className="font-display text-3xl font-semibold text-foreground">{p.title}</p><p className="mt-2 text-sm text-muted-foreground">{p.subtitle}</p></div><div className="h-px bg-primary/50" /></div>;
             return (
             <Reveal key={p.title} delay={Math.min(i * 0.04, 0.15)} className="h-full">
-              <article className="project-card group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card">
+              <article
+                className="project-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card"
+                onMouseMove={(event) => {
+                  const bounds = event.currentTarget.getBoundingClientRect();
+                  const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+                  const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+                  event.currentTarget.style.setProperty("--tilt-x", `${y * -5}deg`);
+                  event.currentTarget.style.setProperty("--tilt-y", `${x * 6}deg`);
+                  event.currentTarget.style.setProperty("--glare-x", `${(x + 0.5) * 100}%`);
+                  event.currentTarget.style.setProperty("--glare-y", `${(y + 0.5) * 100}%`);
+                }}
+                onMouseLeave={(event) => {
+                  event.currentTarget.style.setProperty("--tilt-x", "0deg");
+                  event.currentTarget.style.setProperty("--tilt-y", "0deg");
+                  event.currentTarget.style.setProperty("--glare-x", "50%");
+                  event.currentTarget.style.setProperty("--glare-y", "50%");
+                }}
+              >
                 <div className="flex items-center justify-between border-b border-border bg-surface px-4 py-3"><span className="flex gap-1.5" aria-hidden="true"><span className="h-1.5 w-1.5 rounded-full bg-primary" /><span className="h-1.5 w-1.5 rounded-full bg-border-strong" /><span className="h-1.5 w-1.5 rounded-full bg-border-strong" /></span><span className="font-mono text-[10px] text-muted-foreground">PROJECT {projectNumber}</span><span className="font-mono text-[10px] text-primary">{p.type}</span></div>
                 {p.url ? <a href={p.url} {...ext} aria-label={`Open ${p.title}`} className="relative block aspect-[1.5] overflow-hidden border-b border-border bg-surface">{preview}<span className="absolute bottom-3 right-3 grid h-9 w-9 place-items-center rounded-md border border-border bg-background text-foreground"><ArrowUpRight size={18} /></span></a> : <div className="aspect-[1.5] overflow-hidden border-b border-border bg-surface">{preview}</div>}
                 <div className="flex flex-1 flex-col p-5"><h3 className="text-xl font-semibold">{p.title}</h3>

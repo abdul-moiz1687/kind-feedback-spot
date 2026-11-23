@@ -2,6 +2,7 @@ import { Braces, Database, Globe, Wrench } from "lucide-react";
 import { skillGroups } from "@/data/site";
 import { SkillIcon } from "./icons";
 import { Reveal, SectionHeader } from "./ui";
+import { TechSphere3D } from "./TechSphere3D";
 
 const groupIcons = [Braces, Database, Globe, Wrench];
 
@@ -10,6 +11,16 @@ export function Skills() {
     <section id="skills" className="border-y border-border bg-surface/60 py-20 backdrop-blur-[2px] md:py-28">
       <div className="container-site">
         <SectionHeader index="03" eyebrow="Skills & technologies" title={<>The stack behind<br />the solutions.</>} intro="From responsive interfaces to backend services, CMS solutions, and API integrations — the technologies I use to build practical digital products." />
+        <Reveal className="mb-12 overflow-hidden rounded-2xl border border-border bg-background/70 p-4 sm:p-8">
+          <div className="mb-2 flex items-center justify-between gap-4">
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">Interactive 3D Tech Space</p>
+              <p className="mt-2 text-sm text-muted-foreground">Drag to explore the stack. Hover a tag to pause the sphere.</p>
+            </div>
+            <span className="hidden rounded-full border border-primary/30 px-3 py-1 font-mono text-[10px] text-primary sm:inline-flex">16 NODES</span>
+          </div>
+          <TechSphere3D />
+        </Reveal>
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-8 xl:grid-cols-4">
           {skillGroups.map(({ title, skills }, i) => {
             const GroupIcon = groupIcons[i] ?? Braces;

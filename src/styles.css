@@ -362,104 +362,15 @@
 }
 .project-card:hover::after,
 .project-card:focus-within::after { opacity: 1; }
-.tech-orbit {
-  position: absolute;
-  z-index: 0;
-  top: 50%;
-  right: -9rem;
-  width: 360px;
-  height: 360px;
-  perspective: 1000px;
-  transform: translateY(-50%) rotateX(var(--orbit-tilt-x)) rotateY(var(--orbit-tilt-y));
-  transform-style: preserve-3d;
-  transition: transform 500ms ease-out;
-  pointer-events: auto;
-}
-.tech-orbit-glow {
-  position: absolute;
-  inset: 28%;
-  border-radius: 50%;
-  background: var(--primary);
-  filter: blur(45px);
-  opacity: 0.2;
-  animation: tech-orbit-pulse 3s ease-in-out infinite;
-}
-.tech-orbit-core {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: grid;
-  width: 92px;
-  height: 92px;
-  place-items: center;
-  border: 1px solid color-mix(in oklab, var(--primary) 75%, white);
-  border-radius: 50%;
-  background: color-mix(in oklab, var(--background) 78%, var(--primary));
-  box-shadow: 0 0 25px color-mix(in oklab, var(--primary) 75%, transparent), inset 0 0 24px color-mix(in oklab, var(--primary) 35%, transparent);
-  color: var(--primary);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 700;
-  transform: translate(-50%, -50%) translateZ(30px);
-  transform-style: preserve-3d;
-  animation: tech-orbit-pulse 3s ease-in-out infinite;
-}
-.tech-orbit-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 270px;
-  height: 150px;
-  border: 1px solid color-mix(in oklab, var(--primary) 48%, transparent);
-  border-radius: 50%;
-  transform-style: preserve-3d;
-}
-.tech-orbit-ring-one { transform: translate(-50%, -50%) rotateX(66deg) rotateZ(18deg); }
-.tech-orbit-ring-two { transform: translate(-50%, -50%) rotateX(66deg) rotateZ(-52deg) scale(0.82); opacity: 0.55; }
-.tech-orbit-icons {
-  position: absolute;
-  inset: 0;
-  transform-style: preserve-3d;
-  animation: tech-orbit-spin 18s linear infinite;
-}
-.tech-orbit-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: grid;
-  width: 38px;
-  height: 38px;
-  place-items: center;
-  border: 1px solid color-mix(in oklab, var(--primary) 35%, var(--border));
-  border-radius: 12px;
-  background: color-mix(in oklab, var(--surface) 78%, transparent);
-  box-shadow: 0 8px 20px color-mix(in oklab, var(--background) 45%, transparent);
-  color: var(--primary);
-  transform: translate(-50%, -50%) rotate(var(--orbit-angle)) translateX(138px) rotate(calc(var(--orbit-angle) * -1));
-  transform-style: preserve-3d;
-  animation: tech-orbit-depth 6s ease-in-out infinite var(--orbit-delay);
-  backdrop-filter: blur(8px);
-}
-.tech-orbit-icon-1 { transform: translate(-50%, -50%) rotate(var(--orbit-angle)) translateX(108px) rotate(calc(var(--orbit-angle) * -1)); }
-.tech-orbit-icon svg { width: 20px; height: 20px; }
-@keyframes tech-orbit-spin { to { transform: rotateZ(360deg); } }
-@keyframes tech-orbit-depth {
-  0%, 100% { opacity: 0.45; transform: translate(-50%, -50%) rotate(var(--orbit-angle)) translateX(138px) rotate(calc(var(--orbit-angle) * -1)) scale(0.78); }
-  50% { opacity: 1; transform: translate(-50%, -50%) rotate(var(--orbit-angle)) translateX(138px) rotate(calc(var(--orbit-angle) * -1)) scale(1.12); }
-}
-@keyframes tech-orbit-pulse { 50% { opacity: 0.42; transform: scale(1.08); } }
+.tech-sphere-shell { position: relative; width: 100%; height: min(58vw, 460px); min-height: 330px; }
+.tech-sphere-canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+.tech-sphere-canvas:active { cursor: grabbing; }
+.tech-sphere-shell::before, .tech-sphere-shell::after { position: absolute; inset: 12% 18%; border: 1px solid color-mix(in oklab, var(--primary) 14%, transparent); border-radius: 50%; content: ""; pointer-events: none; transform: rotateX(68deg) rotateZ(18deg); }
+.tech-sphere-shell::after { inset: 18% 12%; opacity: .5; transform: rotateY(68deg) rotateZ(-18deg); }
 @media (min-width: 768px) {
   .project-card { transform: perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)); }
 }
-@media (max-width: 767px) {
-  .tech-orbit { position: relative; top: auto; right: auto; width: min(320px, 90vw); height: 260px; margin: -2rem auto 1rem; transform: scale(0.78); }
-}
 @media (prefers-reduced-motion: reduce) {
-  .tech-orbit,
-  .tech-orbit-icons,
-  .tech-orbit-icon,
-  .tech-orbit-core,
-  .tech-orbit-glow { animation: none; transition: none; }
   .project-card { transform: none !important; }
 }
 .contact-input { transition: border-color 200ms ease, background-color 200ms ease; }

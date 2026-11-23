@@ -19,7 +19,6 @@ import { Skills } from "./Skills";
 import { Footer } from "./Footer";
 import { AnimatedBackground, CursorFollower } from "./Effects";
 import { TypedRole } from "./TypedRole";
-import { TechOrbit3D } from "./TechOrbit3D";
 
 function Counter({ target }: { target: number }) {
   const [count, setCount] = useState(0);
@@ -89,7 +88,6 @@ export function Portfolio() {
               </Reveal>
               <Reveal delay={0.12} className="hero-photo shrink-0 self-center">
                 <div className="relative">
-                  <TechOrbit3D />
                   <div aria-hidden="true" className="absolute -inset-3 rounded-2xl border border-border bg-surface/60" />
                   <img src={portrait} alt="Abdul Moiz" className="relative z-10 aspect-[4/5] w-full rounded-xl border border-border-strong object-cover object-top" fetchPriority="high" />
                 </div>

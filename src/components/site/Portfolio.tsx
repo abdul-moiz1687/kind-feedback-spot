@@ -61,7 +61,7 @@ export function Portfolio() {
                 <p className="mt-3 text-base leading-8">{about.approach}</p>
               </div>
               <div className="mt-8 grid grid-cols-3 gap-4">
-                {[["09", "Projects"], ["06", "Certificates"], ["MERN", "Stack"]].map(([n, l]) => <div key={l} className="rounded-xl border border-border p-4 text-center"><p className="font-display text-2xl font-semibold text-primary sm:text-3xl">{n}</p><p className="mt-1 text-xs text-muted-foreground">{l}</p></div>)}
+                {[["12", "Projects"], ["08", "Certificates"], ["MERN", "Stack"]].map(([n, l]) => <div key={l} className="rounded-xl border border-border p-4 text-center"><p className="font-display text-2xl font-semibold text-primary sm:text-3xl">{n}</p><p className="mt-1 text-xs text-muted-foreground">{l}</p></div>)}
               </div>
               <div className="mt-8 flex flex-wrap gap-3"><Button asChild><a href="#contact">Let's talk<ArrowUpRight /></a></Button><Button asChild variant="outline"><a href={profile.cvPath} download={profile.cvFilename}>Download CV<ArrowDownToLine /></a></Button></div>
             </Reveal>

@@ -26,7 +26,7 @@ export const FORMSPREE_ENDPOINT = "https://formspree.io/f/mjygoeqo";
 export const about = {
   paragraphs: [
     "I'm Abdul Moiz, a web developer based in Karachi, Pakistan. Having completed SMIT's Modern Web Application Development course, I've developed practical skills in both frontend and backend development. Through hands-on projects, I've worked with React, Next.js, Node.js, Express.js, REST APIs, and MongoDB to build responsive interfaces and functional, database-driven applications.",
-    "Alongside web development, I'm also expanding my digital skills through DigiSkills courses in SEO and WordPress. This allows me to explore how websites are developed, optimized, and made more accessible to their intended audiences. I enjoy solving practical problems, connecting clean user interfaces with reliable backend functionality, and continuously improving my skills by building real projects and learning new technologies.",
+    "Alongside web development, I've completed DigiSkills courses in SEO and WordPress. This allows me to explore how websites are developed, optimized, and made more accessible to their intended audiences. I enjoy solving practical problems, connecting clean user interfaces with reliable backend functionality, and continuously improving my skills by building real projects and learning new technologies.",
   ],
   approach: "Understand the problem. Keep the experience simple. Build with care.",
 };
@@ -35,7 +35,7 @@ export const skillGroups = [
   { title: "Frontend", skills: ["HTML5", "CSS3", "JavaScript", "React", "Next.js", "Tailwind CSS", "Bootstrap", "Responsive Design"] },
   { title: "Backend & Data", skills: ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "Firebase", "Upstash Redis", "Cloudinary", "REST APIs", "GraphQL APIs", "JWT Authentication"] },
   { title: "CMS & SEO", skills: ["WordPress", "Elementor", "WooCommerce", "Gutenberg", "Theme & Plugin Configuration", "WPForms", "Contact Form 7", "Rank Math SEO", "All-in-One WP Migration", "LocalWP", "Basic On-Page SEO", "Keyword Research", "Google Search Console", "Google PageSpeed Insights", "SEMrush (Basic familiarity)"] },
-  { title: "Tools & Workflow", skills: ["Git", "GitHub", "Vite", "VS Code", "Postman", "Vercel", "Netlify", "Gemini API", "Canva (Basic)", "Figma (Basic)"] },
+  { title: "Tools & Workflow", skills: ["Git", "GitHub", "Vite", "VS Code", "Postman", "Vercel", "Netlify", "CI/CD", "Gemini API", "Canva (Basic)", "Figma (Basic)"] },
 ];
 
 export const navLinks = [
@@ -70,6 +70,8 @@ export const certifications = [
   { title: "Introduction to MS Excel", issuer: "Simplilearn SkillUp × Microsoft", date: "May 21, 2026", file: "/certificates/simplilearn-intro-ms-excel.pdf" },
   { title: "IT for Business Success", issuer: "HP LIFE (HP Foundation)", date: "Jan 28, 2026", file: "/certificates/hp-life-it-for-business-success.pdf" },
   { title: "Social Media Marketing", issuer: "HP LIFE (HP Foundation)", date: "Jan 31, 2026", file: "/certificates/hp-life-social-media-marketing.pdf" },
+  { title: "WordPress (Batch 04)", issuer: "DigiSkills Training Program", date: "Aug 2026 – Oct 2026", file: "/certificates/digiskills-wordpress-batch-04.pdf" },
+  { title: "SEO (Search Engine Optimization) (Batch 04)", issuer: "DigiSkills Training Program", date: "Aug 2026 – Oct 2026", file: "/certificates/digiskills-seo-batch-04.pdf" },
 ];
 
-export const ongoingTraining = { title: "WordPress & SEO", issuer: "DigiSkills", status: "In progress" };
+export const ongoingTraining = { title: "WordPress & SEO", issuer: "DigiSkills", status: "Completed" };

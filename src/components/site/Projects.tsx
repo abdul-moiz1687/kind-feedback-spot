@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight, Code2, ExternalLink, Github, Layers, ShoppingBag } from "lucide-react";
+import { ArrowDown, ArrowUp, ArrowUpRight, Code2, ExternalLink, Github, Layers, ShoppingBag } from "lucide-react";
 import { projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import { Reveal, SectionHeader, ext } from "./ui";
@@ -30,6 +30,10 @@ const images: Record<string, string> = {
 
 export function Projects() {
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");
+  const [showAll, setShowAll] = useState(false);
+  const filteredProjects = projects.filter((p) => filter === "All" || p.type === filter);
+  const visibleProjects = filter === "All" && !showAll ? filteredProjects.slice(0, 4) : filteredProjects;
+
   return (
     <section id="projects" className="border-t border-border py-20 md:py-28">
       <div className="container-site">
@@ -38,7 +42,7 @@ export function Projects() {
           {filters.map((item) => <Button key={item} variant={filter === item ? "default" : "outline"} onClick={() => setFilter(item)} aria-pressed={filter === item}>{item}</Button>)}
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.filter((p) => filter === "All" || p.type === filter).map((p, i) => {
+          {visibleProjects.map((p, i) => {
             const projectNumber = String(projects.indexOf(p) + 1).padStart(2, "0");
             const preview = images[p.title]
               ? <img src={images[p.title]} alt={`${p.title} website screenshot`} loading="lazy" className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
@@ -57,6 +61,11 @@ export function Projects() {
             </Reveal>
           );})}
         </div>
+        {filter === "All" && <div className="mt-10 flex justify-center">
+          <Button variant="outline" className="group gap-2" onClick={() => setShowAll((current) => !current)} aria-expanded={showAll}>
+            {showAll ? <>Show fewer projects<ArrowUp size={16} /></> : <>View all projects ({projects.length})<ArrowDown className="transition-transform duration-300 group-hover:translate-y-0.5" size={16} /></>}
+          </Button>
+        </div>}
       </div>
     </section>
   );

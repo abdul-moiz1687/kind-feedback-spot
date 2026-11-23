@@ -100,12 +100,14 @@ export function Portfolio() {
           <div className="grid items-center gap-12 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16">
             <Reveal className="mx-auto w-full max-w-[360px]">
               <div className="relative">
-                <div aria-hidden="true" className="absolute -left-4 -top-4 h-full w-full rounded-2xl border-2 border-primary/40" />
+                <div aria-hidden="true" className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-primary/35 via-primary/5 to-transparent blur-2xl" />
+                <div aria-hidden="true" className="absolute -left-4 -top-4 h-full w-full rounded-2xl border-2 border-primary/45" />
                 <div className="relative overflow-hidden rounded-2xl border border-border-strong bg-surface shadow-2xl">
                   <img src={portrait} alt="Abdul Moiz portrait" loading="lazy" className="aspect-[4/5] w-full object-cover object-top" />
+                  <div className="absolute right-3 top-3 rounded-full border border-white/15 bg-background/70 px-3 py-1.5 font-mono text-[10px] font-medium tracking-wide text-foreground shadow-lg backdrop-blur-md">⚡ MERN Stack</div>
                   <div className="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-xl border border-border bg-background/85 px-4 py-3 backdrop-blur">
                     <div><p className="font-display text-sm font-semibold">Abdul Moiz</p><p className="text-xs text-muted-foreground">{profile.role}</p></div>
-                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><MapPin size={12} className="text-primary" />Karachi</span>
+                    <span className="flex items-center gap-2 text-xs text-muted-foreground"><span aria-hidden="true" className="h-2 w-2 rounded-full bg-success shadow-[0_0_10px_var(--color-success)]" />Open to Internships</span>
                   </div>
                 </div>
               </div>

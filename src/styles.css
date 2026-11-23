@@ -332,8 +332,20 @@
 .typing-caret { color: var(--primary); animation: caret-blink 0.75s steps(1) infinite; }
 .typing-finished { opacity: 0; animation: none; }
 @keyframes caret-blink { 50% { opacity: 0; } }
-.project-card { transition: transform 300ms ease, border-color 300ms ease; }
-.project-card:hover, .project-card:focus-within { border-color: var(--primary); transform: translateY(-5px); }
+.project-card {
+  border-color: transparent;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(135deg, color-mix(in oklab, var(--primary) 38%, transparent), var(--border), color-mix(in oklab, var(--primary) 12%, transparent)) border-box;
+  transition: transform 300ms ease, box-shadow 300ms ease, background 300ms ease;
+}
+.project-card:hover, .project-card:focus-within {
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(135deg, color-mix(in oklab, var(--primary) 75%, transparent), var(--border-strong), color-mix(in oklab, var(--primary) 30%, transparent)) border-box;
+  box-shadow: 0 16px 40px color-mix(in oklab, var(--primary) 12%, transparent);
+  transform: translateY(-5px);
+}
 .contact-input { transition: border-color 200ms ease, background-color 200ms ease; }
 .contact-input:focus { border-color: var(--primary); background-color: var(--surface-2); }
 @media (prefers-reduced-motion: reduce) {

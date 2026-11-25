@@ -1,4 +1,4 @@
-import { ArrowUp, ArrowUpRight, ArrowDownToLine, MapPin } from "lucide-react";
+import { ArrowUp, ArrowUpRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navLinks, profile } from "@/data/site";
 import { SocialLinks } from "./icons";
@@ -27,9 +27,8 @@ export function Footer() {
             <h2 className="mb-5 font-mono text-xs uppercase text-muted-foreground">Let's connect</h2>
             <a href={`mailto:${profile.email}`} className="footer-link break-all text-sm font-medium underline decoration-border-strong underline-offset-8">{profile.email}</a>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Button asChild variant="outline"><a href={profile.cvPath} download={profile.cvFilename}>Download CV<ArrowDownToLine /></a></Button>
-              <CvModal />
               <Button asChild variant="ghost"><a href="#contact">Say hello<ArrowUpRight /></a></Button>
+              <CvModal />
             </div>
           </div>
         </Reveal>

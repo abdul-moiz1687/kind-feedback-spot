@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowDown,
-  ArrowDownToLine,
   ArrowUpRight,
   Award,
   GraduationCap,
@@ -85,7 +84,7 @@ export function Portfolio() {
                 <h1 className="hero-name mt-4 font-semibold leading-[1.05]">Abdul Moiz</h1>
                 <p className="mt-3 font-display text-2xl font-semibold sm:text-3xl"><TypedRole text={profile.role} /></p>
                 <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">{profile.tagline}</p>
-                <div className="mt-8 flex flex-wrap gap-3"><Button asChild size="lg" className="h-12"><a href="#projects">View my work<ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12"><a href={profile.cvPath} download={profile.cvFilename}>Download CV<ArrowDownToLine /></a></Button><CvModal buttonClassName="h-12 px-8" /></div>
+                <div className="mt-8 flex flex-wrap gap-3"><Button asChild size="lg" className="h-12"><a href="#projects">View my work<ArrowUpRight /></a></Button><CvModal buttonClassName="h-12 px-8" /></div>
                 <div className="mt-6"><SocialLinks /><span className="mt-4 flex items-center gap-2 text-xs text-muted-foreground"><MapPin size={14} />{profile.location}</span></div>
               </Reveal>
               <Reveal delay={0.12} className="hero-photo shrink-0 self-center">
@@ -124,7 +123,7 @@ export function Portfolio() {
               <div className="mt-8 grid grid-cols-3 gap-4">
                 {[["12", "Projects"], ["08", "Certificates"], ["MERN", "Stack"]].map(([n, l]) => <div key={l} className="rounded-xl border border-border p-4 text-center"><p className="font-display text-2xl font-semibold text-primary sm:text-3xl">{/^\d+$/.test(n) ? <Counter target={Number(n)} /> : n}</p><p className="mt-1 text-xs text-muted-foreground">{l}</p></div>)}
               </div>
-              <div className="mt-8 flex flex-wrap gap-3"><Button asChild><a href="#contact">Let's talk<ArrowUpRight /></a></Button><Button asChild variant="outline"><a href={profile.cvPath} download={profile.cvFilename}>Download CV<ArrowDownToLine /></a></Button><CvModal /></div>
+              <div className="mt-8 flex flex-wrap gap-3"><Button asChild><a href="#contact">Let's talk<ArrowUpRight /></a></Button><CvModal /></div>
             </Reveal>
           </div></div></section>
         <Projects />
